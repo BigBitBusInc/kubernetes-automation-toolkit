@@ -29,7 +29,7 @@ cd /home/$INSTALLUSER
 # Pull zipped files
 rm -rf bigbitbus-kat-main # Clean out any old run
 rm bigbitbus-kat-main.zip
-wget https://www.dropbox.com/s/3rng7ke6ii2hl40/bigbitbus-kat-main.zip
+wget https://github.com/BigBitBusInc/kubernetes-automation-toolkit/archive/candair-0.2.zip
 unzip bigbitbus-kat-main.zip
 
 
