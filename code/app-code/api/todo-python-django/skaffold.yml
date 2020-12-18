@@ -24,7 +24,7 @@ build:
   artifacts:
       - image: todo-python-django
 deploy:
-  helm:
+  helm: #Remember to have Helm3 installed already before running Skaffold
     releases:
     - name: django-backend
       namespace: be
@@ -36,4 +36,4 @@ deploy:
       chartPath: kubecode/bigbitbus-dj-py-api
 
 
-      
+    
