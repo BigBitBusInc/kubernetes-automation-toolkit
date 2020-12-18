@@ -40,11 +40,11 @@ We have documented several aspects of the setup. Here is where everything is:
 | Category | File or Directory  | Description | 
 |---|---|---|
 | Documentation | [README.md](./documentation/README.md) | This document. Start here for an overview and links to other documents | 
-| Todo Django API | [../code/app-code/api/todo-python-django](code/app-code/api/todo-python-django) | Django Python todo backend and a detailed readme file; includes Helm chart deployed using Skaffold |
-| Postgresql DB | [../code/k8s-common-code/postgres-db](code/k8s-common-code/postgres-db) | Installing and configuring Postgresql database into the Kubernetes cluster using Helm charts |
-| Vuejs Todo Single Page Application | [../code/app-code/frontend/todo-vuejs](code/app-code/frontend/todo-vuejs) | Todo application implemented in Vuejs and a readme file; includes Helm chart deployed using Skaffold |
-| Monitoring | [../code/k8s-common-code/monitoring](code/k8s-common-code/monitoring) |Installing and configuring monitoring with Prometheus and Grafana into the Kubernetes cluster using standard Helm charts created by the Prometheus community |
-| Kubernetes Dashboard | [../code/k8s-common-code/k8sdashboard](code/k8s-common-code/k8sdashboard) | Running the Kubernetes dashboard |
+| Todo Django API | [../code/app-code/api/todo-python-django](../code/app-code/api/todo-python-django) | Django Python todo backend and a detailed readme file; includes Helm chart deployed using Skaffold |
+| Postgresql DB | [../code/k8s-common-code/postgres-db](../code/k8s-common-code/postgres-db) | Installing and configuring Postgresql database into the Kubernetes cluster using Helm charts |
+| Vuejs Todo Single Page Application | [../code/app-code/frontend/todo-vuejs](../code/app-code/frontend/todo-vuejs) | Todo application implemented in Vuejs and a readme file; includes Helm chart deployed using Skaffold |
+| Monitoring | [../code/k8s-common-code/monitoring](../code/k8s-common-code/monitoring) |Installing and configuring monitoring with Prometheus and Grafana into the Kubernetes cluster using standard Helm charts created by the Prometheus community |
+| Kubernetes Dashboard | [../code/k8s-common-code/k8sdashboard](../code/k8s-common-code/k8sdashboard) | Running the Kubernetes dashboard |
 
 
 We have collected and distilled short explanations of concepts below that we believe are useful to know before proceeding on your Kubernetes journey. Many of these concepts are large multi-year open-source projects in their own right with hundreds of contributors and hundreds of thousands of lines of code. So our treatment of these topics is fleeting at best, but we do strive to provide you with links to official documentation and a few other curated resources to learn more in depth if you need to. 
