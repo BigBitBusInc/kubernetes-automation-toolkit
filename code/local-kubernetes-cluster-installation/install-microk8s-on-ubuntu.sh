@@ -75,7 +75,8 @@ microk8s.enable dns
 microk8s.enable storage
 microk8s.enable registry
 microk8s.enable ingress
-echo "127.0.0.1  klocalhost" >> /etc/hosts
 kubectl get all --all-namespaces # Debug output
 sleep 60 # Sometimes these plugins need a little time to stabilize
+echo "Printing kubeconfig (don't do this in production)"
+microk8s config
 echo "Done installing microk8s"
