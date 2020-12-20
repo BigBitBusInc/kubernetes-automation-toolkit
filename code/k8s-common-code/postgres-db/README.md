@@ -11,9 +11,6 @@ helm repo update
 # For microk8s
 helm upgrade --install pgdb bitnami/postgresql -f pg-values.yaml --namespace pg --create-namespace
 
-# OR, for minikube
-helm upgrade --install pgdb bitnami/postgresql -f pg-values.yaml --namespace pg --create-namespace --set persistence.storageClass="standard"
-```
 ## Cleanup
 ```
 # Delete the Postgres database

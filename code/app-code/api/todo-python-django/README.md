@@ -2,9 +2,9 @@
 
 The Python Django Todo API implements a RESTFul HTTP API for a to-do list. It is derived from [this tutorial](https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api).
 
-In the discussion below we assume you will be choosing Microk8s or Minikube for installing the software on your local PC or a virtual machine.
+In the discussion below we assume you will be choosing Microk8s for installing the software on your local PC or a virtual machine.
 
-__We recommend using Microk8s if you are running the Ubuntu Linux Operating system on your host, otherwise use Minikube for other OSes (such as Apple). We also strongly discourage users from trying to install Minikube/helm/kubectl/skaffold on a Windows computer; you are much better off connecting via SSH to a virtual machine using Ubuntu Linux and deploying all these tools there. Believe us, we have tried and failed and spent hours debugging Windows specific issues when trying to get productive as developers on Windows; our humble advice from experience is to create a Ubuntu VM in the cloud or your Windows machine (a 2-core, 4GB VM will suffice), and use the excellent remote SSH connectivity tools in VS-Code to control and Interact with the VM, as explained in our documentation [here](../../../documentation/windows-setup)__.
+__We recommend using Microk8s if you are running the Ubuntu Linux Operating system on your host we also strongly discourage users from trying to install helm/kubectl/skaffold on a Windows computer; you are much better off connecting via SSH to a virtual machine using Ubuntu Linux and deploying all these tools there. Believe us, we have tried and failed and spent hours debugging Windows specific issues when trying to get productive as developers on Windows; our humble advice from experience is to create a Ubuntu VM in the cloud or your Windows machine (a 2-core, 4GB VM will suffice), and use the excellent remote SSH connectivity tools in VS-Code to control and Interact with the VM, as explained in our documentation [here](../../../documentation/windows-setup)__.
 
 ## Notable Code
 
@@ -110,11 +110,9 @@ Note we selected port 8000 for this case (not 8002) so you can have both the dev
 
 Finally, we are ready to deploy to Kubernetes!
 
-This discussion assumes that you have a your `kubectl` command-line client configured and pointing to the correct Kubernetes cluster (click [Minikube](https://minikube.sigs.k8s.io/docs/start/) or Microk8s ([Ubuntu](https://ubuntu.com/tutorials/install-a-local-kubernetes-with-microk8s#2-deploying-microk8s), [Windows/Mac](https://microk8s.io/docs/install-alternatives)) to learn how to install these one-node Kubernetes clusters on your local PC or a VM). Learn more about setting the Kubectl context [here](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
+This discussion assumes that you have a your `kubectl` command-line client configured and pointing to the correct Kubernetes cluster.
 
-Verify that kubectl is correctly configured
-
-For Microk8s running this command should give you an output similar to this
+Verify that kubectl is correctly configured: for Microk8s running this command should give you an output similar to this
 
 ```
 kubectl get no
@@ -123,35 +121,23 @@ NAME                 STATUS   ROLES    AGE   VERSION
 
 ```
 
-For Minikube
-```
-kubectl get no
-NAME                 STATUS   ROLES    AGE   VERSION
-minikube   Ready    <none>   58d   v1.19.3-34+a56971609ff35a
+If this doesn't work, debug the local Kubernetes cluster installation befre proceeding based on your Kubernetes installation documentation.
 
-```
-
-If this doesn't work, try to debug the local Kubernetes cluster installation befre proceeding.
-
-#### Addons for local Kubernetes via Microk8s or Minikube
+#### Addons for local Kubernetes (Microk8s)
 
 We need to enable some additional add-ons for our local Kubernetes installation. Run these commands.
 
 ```
 # For Microk8s enable these addons
+microk8s.enable rbac
 microk8s.enable dns
 microk8s.enable storage
 microk8s.enable registry
 microk8s.enable ingress
-microk8s.enable rbac
 
-# For Minikube enable these addons
-minikube addons enable registry
-minikube addons enable ingress
-```
 #### Postgres Database
 
-Create the postgres database via a standard Helm chart; run the following commands in a terminal window. It is vital that you only run the microk8s or minikube commands depending on which Kubernetes cluster you have on your PC.
+Create the postgres database via a standard Helm chart; run the following commands in a terminal window.
 
 ```
 kubectl create namespace pg
@@ -161,12 +147,9 @@ helm repo update
 
 # For microk8s
 helm install -n pg pgdb bitnami/postgresql -f pg-values.yaml
-
-# OR, for minikube
-helm install -n pg pgdb bitnami/postgresql -f pg-values.yaml --set persistence.storageClass="standard"
 ```
+Useful tip: To recreate the PG database, make sure you delete both the helm installation and the persistent volume claim, like below, otherwise the data will persist into the new helm installation of the postgres database.
 
-Useful tip: If you mistakenly run the command for microk8s instead of minikube, please delete the helm deployment and the persistent volume claim before re-trying with the correct minikube command; something like
 ```
 helm delete -n pg pgdb
 kubectl -n pg delete pvc data-pgdb-postgresql-0
@@ -183,9 +166,6 @@ cd kubernetes-automation-toolkit/code/app-code/api/todo-python-django/
 
 # For microk8s
 skaffold run --default-repo localhost:32000
-
-# OR, for minikube
-skaffold run --default-repo localhost:5000
 ```
 
 You can always make code changes to the frontend and then run the skaffold `run` command again to deploy the changes into the Kubernetes cluster. Learn more about other [skaffold developer and operations workflows](https://skaffold.dev/docs/workflows/).
@@ -200,41 +180,10 @@ Once the the backend is installed, we can use the ingress to access the applicat
 
 Point your browser at http://host:[port]/djangoapi/apis/v1/ and check if you can browse the API and add/remove/list items etc.
 
-### Minikube
-
-For Minikube, first find the IP address assigned to the ingress
-Run
-```
-kubectl get ingress --all-namespaces
-```
-
-This should yield an output like this:
-```
-NAMESPACE   NAME                                 CLASS    HOSTS        ADDRESS      PORTS   AGE
-be          django-backend-bigbitbus-dj-py-api   <none>   klocalhost   172.17.0.2   80      2m22s
-```
-
-Edit the `/etc/hosts` or `c:\Windows\System32\Drivers\etc\hosts` (Windows) file on your PC and add the IP address and the hostname, for example:
-
-```
-172.17.0.2 klocalhost
-```
-### Microk8s
-
-Edit the `/etc/hosts` or `c:\Windows\System32\Drivers\etc\hosts` (Windows) file on your PC and add this line to the bottom of that file:
-
-```
-127.0.0.1 klocalhost
-```
-
-Notice that for Microk8s we point `klocalhost` to `127.0.0.1`. This is because unlike Minikube, Microk8s is not running within a Virtual machine.
-
-
-Now you can point your web browser to `http://klocalhost/djangoapi/api/v1/` to browse the API.
+Now you can point your web browser to `http://localhost/djangoapi/api/v1/` to browse the API. (note that tis i)
 
 ## Pitfalls, Common Mistakes
-1. Make sure you only run the commands for the Kubernetes cluster you installed on your PC (Minikube or Microk8s); Mixing the two commands can cause the deployments to fail.
-2.
+TBD
 
 ## Clean-up
 
@@ -267,12 +216,9 @@ kubectl delete namespace pg
 
 ### Delete the Kubernetes Cluster
 
-To delete the entire Kubernetes cluster delete the minikube or microk8s installation from your PC, like so:
-
+To delete the entire Kubernetes cluster delete the microk8s installation from your PC, like so:
 
 For microk8s, simply uninstall microk8s for the best cleanup. There are some other options to [reset the cluster](https://microk8s.io/docs/commands#heading--microk8s-reset) in case you don't want to completely remove it.
-
-For minikube, `minikube delete` should suffice.
 
 
 ## Further Reading

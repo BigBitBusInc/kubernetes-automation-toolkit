@@ -148,7 +148,7 @@ ingress:
 
   ## Custom Kubernetes Dashboard Ingress paths. Will override default paths.
   ##
-  customPaths: [] 
+  customPaths: []
   # #  - backend:
   # #      serviceName: ssl-redirect
   # #      servicePort: use-annotation
@@ -163,7 +163,6 @@ ingress:
   ##
   hosts:
     - localhost
-    - klocalhost
 
   ## Kubernetes Dashboard Ingress TLS configuration
   ## Secrets must be manually created in the namespace

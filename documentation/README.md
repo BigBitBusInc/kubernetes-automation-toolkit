@@ -210,7 +210,7 @@ Now that we have a high level idea of some of the features of Kubernetes, lets v
 <hr>
 
 
-Its time to head over to the code and documentation for the individual components!
+Its time to head over to the code and documentation for the individual components! Or, if you want to deploy everything and see how the whole example works, head over to our [quickstart with Vagrant](./quickstart-vagrant.md).
 
 ## Glossary
 

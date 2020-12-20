@@ -61,9 +61,6 @@ cd kubernetes-automation-toolkit/code/app-code/frontend/todo-vuejs/  # this dire
 # For microk8s
 skaffold run --default-repo localhost:32000
 
-# OR, for minikube
-skaffold run --default-repo localhost:5000
-```
 
 You can always make code changes to the frontend and then run the skaffold `run` command again to deploy the changes into the Kubernetes cluster. Learn more about other [skaffold developer and operations workflows](https://skaffold.dev/docs/workflows/).
 

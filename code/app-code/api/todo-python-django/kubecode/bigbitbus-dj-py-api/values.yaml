@@ -59,8 +59,6 @@ ingress:
     nginx.ingress.kubernetes.io/app-root: /djangoapi/
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: klocalhost
-      paths: ["/djangoapi"]
     - host: localhost
       paths: ["/djangoapi"]
   tls: []
@@ -96,4 +94,3 @@ affinity: {}
 env_in_plaintext:
   POSTGRES_HOST: "pgdb-postgresql.pg"
   POSTGRES_PORT: "5432"
-  
