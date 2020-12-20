@@ -23,14 +23,14 @@ We assume you have access to a reasonable local computer with a broadband intern
 
 
 1. [Install Docker](https://docs.docker.com/get-docker/) and [Docker-compose](https://docs.docker.com/compose/install/) on your computer.
-2. [Install Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/), the Kubernetes command line interface client, on your computer. 
+2. [Install Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/), the Kubernetes command line interface client, on your computer.
 3. [Install Helm](https://helm.sh/docs/intro/install/) package manager client on your computer (version 3 or greater).
 4. [Install Skaffold](https://skaffold.dev/docs/install/) on your computer.
 
 For this frontend to work you will need the [backend todo API](../../api/todo-python-django/) server to be available for this code to function. You will need to set the correct backend server and port in the [.env](./.env) file there for the `VUE_APP_DJANGO_ENDPOINT` environment variable.
 
 ### Development on your Local PC
-Developers may want to iterate through their code as they develop software on their local PC. 
+Developers may want to iterate through their code as they develop software on their local PC.
 
 For this frontend to work we need the API server to be online and listening at port 80. This [document](../../../app-code/api/todo-python-django/README.md) describes running the django API on the local PC directly or inside a docker container via docker-compose. Make a note of the API endpoint (e.g. localhost:8000), and export it in your terminal like so
 
@@ -39,7 +39,7 @@ export VUE_APP_DJANGO_ENDPOINT=localhost:8000
 ```
 or, you can edit this in the `.env` file present in this directory.
 
-Next, you can run 
+Next, you can run
 
 ```
 npm install
@@ -49,7 +49,7 @@ npm run serve
 Then access the frontend at [http://localhost:8080/frontend/](http://localhost:8080/frontend/)
 
 
-### Run in Kubernetes 
+### Run in Kubernetes
 
 You first need to follow the steps in [this document](../../../app-code/api/todo-python-django/README.md) to get Kubernetes and the Django API running.
 
@@ -57,13 +57,10 @@ Next, install the Vuejs helm chart, like so:
 
 ```bash
 kubectl create namespace fe
-cd bigbitbus-kat-main/code/app-code/frontend/todo-vuejs/  # this directory
+cd kubernetes-automation-toolkit/code/app-code/frontend/todo-vuejs/  # this directory
 # For microk8s
 skaffold run --default-repo localhost:32000
 
-# OR, for minikube
-skaffold run --default-repo localhost:5000
-```
 
 You can always make code changes to the frontend and then run the skaffold `run` command again to deploy the changes into the Kubernetes cluster. Learn more about other [skaffold developer and operations workflows](https://skaffold.dev/docs/workflows/).
 
@@ -71,7 +68,7 @@ You can always make code changes to the frontend and then run the skaffold `run`
 
 ## Pitfalls, Common Mistakes
 1. Is your [.env](./.env) file's `VUE_APP_DJANGO_ENDPOINT` variable pointing to the correct Django todo API server? Point your browser at http://host:[port]/djangoapi/apis/v1/ and check if you can browse the API, add a todo item, list items etc.
-   
+
 
 
 ## Clean-up

@@ -58,8 +58,6 @@ ingress:
     nginx.ingress.kubernetes.io/rewrite-target: /frontend
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: klocalhost
-      paths: ["/frontend"]
     - host: localhost
       paths: ["/frontend"]
   tls: []

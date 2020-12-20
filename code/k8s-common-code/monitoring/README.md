@@ -7,9 +7,9 @@ The Prometheus open-source community has released the [kube-prometheus-stack hel
 Here are the commands to install the prometheus stack.
 
 ```bash
-cd bigbitbus-kat-main/code/k8s-common-code/monitoring/ # This directory
+cd kubernetes-automation-toolkit/code/k8s-common-code/monitoring/ # This directory
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add stable https://charts.helm.sh/stable
 helm repo update
-helm  upgrade --install monitoring-stack prometheus-community/kube-prometheus-stack -f ./prometheus-grafana-monitoring-stack-values.yaml --namespace monitoring --create-namespace 
+helm  upgrade --install monitoring-stack prometheus-community/kube-prometheus-stack -f ./prometheus-grafana-monitoring-stack-values.yaml --namespace monitoring --create-namespace
 ```
