@@ -21,7 +21,7 @@ services:
     image: todo-python-django:latest
     restart: always
     ports:
-      - 8000:8000  
+      - 8000:8000
 # Environment values are picked up from the
 # .env file in this directory; you can override
 # these by setting environment variables.
