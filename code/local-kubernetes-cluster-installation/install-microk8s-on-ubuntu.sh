@@ -13,13 +13,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# This script needs to run as the root user.
 
+# There are two command line arguments (both optional) but quite important to understand
+# $1 is the KUBERNETES VERSION
+# $2 is the USER for whom to install this.
+
+DEFAULTKUBERNETESVERSION="1.19"
+date
 echo "Starting BigBitBus Kubernetes Automation Toolkit (KAT) Microk8s installation script"
 if [ ! -z $1 ] 
 then 
     export KUBEVERSION=$1
 else
-    export KUBEVERSION="1.19"
+    export KUBEVERSION=$DEFAULTKUBERNETESVERSION
 fi
 
 echo "Installing Kubernetes version " $KUBEVERSION
@@ -43,9 +50,9 @@ apt-get install unzip
 
 # Note - we pegged the Kubernetes version here
 snap install microk8s --classic --channel=1.19
-snap install docker --channel=19.03
+snap install --stable docker
 snap install kubectl --classic --channel=1.19
-snap install helm --classic --channel=3.4.2
+snap install helm --classic --channel=3.4
 sleep 60 # Sometimes microk8s needs time to stabilize
 cd /tmp
 curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64 && \
