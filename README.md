@@ -9,7 +9,7 @@ Most components of the Kubernative cloud native ecosystem are extremely well doc
 
 From here, we recommend you start with a [review of some Kubernetes and related concepts](./documentation/README.md) we have put together. Or, if you want to directly go to the code and examples you can navigate the folders in the repository, the table below will launch you right in.
 
-TL;DR you are in a real hurry and just want to deploy the example into a local VM right now, head over to our [quickstart](./documentation/quickstart-vagrant).
+***TL;DR** If you are in a real hurry and just want to deploy the example into a local VM right now, head over to our [quickstart](./documentation/quickstart-vagrant.md).
 
 <center>
 <img src="documentation/images/kubernetes-application.svg"  alt="BigBitBus KAT components" width="400"/>
