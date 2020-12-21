@@ -4,7 +4,7 @@ The Python Django Todo API implements a RESTFul HTTP API for a to-do list. It is
 
 In the discussion below we assume you will be choosing Microk8s for installing the software on your local PC or a virtual machine.
 
-__We recommend using Microk8s if you are running the Ubuntu Linux Operating system on your host we also strongly discourage users from trying to install helm/kubectl/skaffold on a Windows computer; you are much better off connecting via SSH to a virtual machine using Ubuntu Linux and deploying all these tools there. Believe us, we have tried and failed and spent hours debugging Windows specific issues when trying to get productive as developers on Windows; our humble advice from experience is to create a Ubuntu VM in the cloud or your Windows machine (a 2-core, 4GB VM will suffice), and use the excellent remote SSH connectivity tools in VS-Code to control and Interact with the VM, as explained in our documentation [here](../../../documentation/windows-setup)__.
+__We recommend using Microk8s if you are running the Ubuntu Linux Operating system on your host we also strongly discourage users from trying to install helm/kubectl/skaffold directly on Windows. Instead, create a Ubuntu VM in the cloud or your [Windows machine with Vagrant](../../../../../documentation/../kubernetes-automation-toolkit/documentation/quickstart-vagrant.md).__
 
 ## Notable Code
 
