@@ -1,6 +1,21 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Copyright 2020 BigBitBus
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
@@ -63,8 +78,17 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
+
+  # Replace RELEASENAME with the branch or tag you want to install from the KAT repository
   config.vm.provision "shell", inline: <<-SHELL
-     curl
-     apt-get install -y apache2
+    RELEASENAME="main"
+    date
+    echo "Installing $RELEASENAME BitBitBus KAT into VM, install logs available at /var/log/"
+    echo "Step 1: Microk8s and infrastructure components"
+    curl -L -s https://raw.githubusercontent.com/BigBitBusInc/kubernetes-automation-toolkit/$RELEASENAME/code/local-kubernetes-cluster-installation/install-microk8s-on-ubuntu.sh | bash | tee /var/log/bigbitbus-microk8s-install.log
+    echo "Step 2: Application code"
+    curl -L -s https://raw.githubusercontent.com/BigBitBusInc/kubernetes-automation-toolkit/$RELEASENAME/code/local-kubernetes-cluster-installation/install-application-stack.sh | bash -s $RELEASENAME | tee /var/log/bigbitbus-kat-application-code-install.log
+    echo "Kubeconfig (don't print/share this in production!)"
+    microk8s config
   SHELL
 end
