@@ -2,11 +2,11 @@
 
 Follow these steps to quickly deploy the KAT example. You will need a PC with at least 4 cores and 8 GB of RAM  to run KAT locally in a VM that Vagrant will setup for you; if you don't have such a machine then please  use a cloud provider to rent a VM (although you may be able to get a limited time free VM). We provide instructions for this alternative [here](./cloudvm.md).
 
-1. Install [Hashicorp's Vagrant](https://www.vagrantup.com/downloads) for your OS (Vagrant supports Windows, Linux and MacOS); you may also need to install the hypervisor software and vagrant plugin for this hypervisor on your platform; you should also find this information on the Vagrant installation page for your OS. 
+1. Install [Hashicorp's Vagrant](https://www.vagrantup.com/downloads) for your OS (Vagrant supports Windows, Linux and MacOS); you may also need to install the hypervisor software and a vagrant plugin for this hypervisor on your platform; you should also find this information on the Vagrant installation page for your OS. 
 
 2. Navigate to the root directory of the KAT repository and enter this command in a terminal
 ```bash
-vagrant up [--provider <hyperv/libvirt/virtualbox/parallels/vmware etc.>]
+vagrant up
 
 ```
 Please be patient, even on a fast Internet connection remember we are downloading and installing over 2GB of OS, Kubernetes, docker images etc.
