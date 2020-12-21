@@ -1,3 +1,9 @@
+<center>
+<img src="documentation/images/kubernetes-application.svg"  alt="BigBitBus KAT components" width="400"/>
+</center>
+
+**Components of the BigBitBus KAT application code. Click on the diagram to enlarge, or follow [this link](documentation/README.md) for detailed documentation**
+
 # Introduction
 
 Welcome to the BigBitBus Kubernetes Automation Toolkit (KAT).
@@ -5,17 +11,12 @@ Welcome to the BigBitBus Kubernetes Automation Toolkit (KAT).
 KAT is a set of software code and documentation to help understand the big picture of how a web application is developed for and deployed into a Kubernetes environment.
 
 
-Most components of the Kubernative cloud native ecosystem are extremely well documented, but its hard to find end-to-end examples that illustrate how these components work together in the context of an application. The main idea is to show you the breadth of several cloud-native technologies working together to support an application deployed on Kubernetes. We provide links to high quality documentation for deep dives on the concepts our examples illustrate. Our examples will show you how it all comes together so you can get  productive, fast. You can then choose to learn more about specific parts of the cloud native stack as your situation demands.
+Most components of the Kubernates cloud native ecosystem are extremely well documented, but its hard to find end-to-end examples that illustrate how these components work together in the context of an application. The main idea is to show you the breadth of several cloud-native technologies working together to support an application deployed on Kubernetes. We provide links to high quality documentation for deep dives on the concepts our examples illustrate. Our examples will show you how it all comes together so you can get  productive, fast. You can then choose to learn more about specific parts of the cloud native stack as your situation demands.
 
 From here, we recommend you start with a [review of some Kubernetes and related concepts](./documentation/README.md) we have put together. Or, if you want to directly go to the code and examples you can navigate the folders in the repository, the table below will launch you right in.
 
 ***TL;DR** If you are in a real hurry and just want to deploy the example into a local VM right now, head over to our [quickstart](./documentation/quickstart-vagrant.md).
 
-<center>
-<img src="documentation/images/kubernetes-application.svg"  alt="BigBitBus KAT components" width="400"/>
-</center>
-
-**Components of the BigBitBus KAT application code. Click on the diagram to enlarge, or follow [this link](documentation/README.md) for detailed documentation**
 
 
 # What is where?
