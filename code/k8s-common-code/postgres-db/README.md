@@ -11,6 +11,7 @@ helm repo update
 # For microk8s
 helm upgrade --install pgdb bitnami/postgresql -f pg-values.yaml --namespace pg --create-namespace
 
+```
 ## Cleanup
 ```
 # Delete the Postgres database
