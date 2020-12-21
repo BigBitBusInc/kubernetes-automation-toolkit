@@ -32,7 +32,7 @@ For this frontend to work you will need the [backend todo API](../../api/todo-py
 ### Development on your Local PC
 Developers may want to iterate through their code as they develop software on their local PC.
 
-For this frontend to work we need the API server to be online and listening at port 80. This [document](../../../app-code/api/todo-python-django/README.md) describes running the django API on the local PC directly or inside a docker container via docker-compose. Make a note of the API endpoint (e.g. localhost:8000), and export it in your terminal like so
+For this frontend to work we need the API server to be online and listening at port 80. This [document](../../../app-code/api/todo-python-django/) describes running the django API on the local PC directly or inside a docker container via docker-compose. Make a note of the API endpoint (e.g. localhost:8000), and export it in your terminal like so
 
 ```
 export VUE_APP_DJANGO_ENDPOINT=localhost:8000
@@ -51,7 +51,7 @@ Then access the frontend at [http://localhost:8080/frontend/](http://localhost:8
 
 ### Run in Kubernetes
 
-You first need to follow the steps in [this document](../../../app-code/api/todo-python-django/README.md) to get Kubernetes and the Django API running.
+You first need to follow the steps in [this document](../../../app-code/api/todo-python-django/) to get Kubernetes and the Django API running.
 
 Next, install the Vuejs helm chart, like so:
 
