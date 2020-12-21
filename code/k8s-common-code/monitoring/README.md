@@ -13,3 +13,4 @@ helm repo add stable https://charts.helm.sh/stable
 helm repo update
 helm  upgrade --install monitoring-stack prometheus-community/kube-prometheus-stack -f ./prometheus-grafana-monitoring-stack-values.yaml --namespace monitoring --create-namespace
 ```
+**Credentials**: You can log into the `/monitoring-grafana/` endpoint with username `admin` and password `promoperator`.

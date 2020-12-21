@@ -11,11 +11,11 @@ vagrant up [--provider <hyperv/libvirt/virtualbox/parallels/vmware etc.>]
 ```
 Please be patient, even on a fast Internet connection remember we are downloading and installing over 2GB of OS, Kubernetes, docker images etc.
 
-3. You can now open a web-browser and reach these end-points
-  - Todo application Vuejs Frontend [http://localhost:8080/frontend/](http://localhost:8080/frontend/)
-  - Todo application browsable API [http://localhost:8080/djangoapi/api/v1](http://localhost:8080/djangoapi/api/v1)
-  - Kubernetes Dashboard [http://localhost:8080/dashboard/](http://localhost:8080/dashboard/)
-  - Grafana Monitoring [http://localhost:8080/monitoring-grafana/](http://localhost:8080/monitoring-grafana/)
+3.  You can now open a web-browser and reach these end-points
+  - Todo application Vuejs Frontend [http://localhost:8080/frontend/](http://localhost:8080/frontend/) [Learn more](../code/app-code/api/todo-python-django/README.md)
+  - Todo application browsable API [http://localhost:8080/djangoapi/api/v1/](http://localhost:8080/djangoapi/api/v1) [Learn more](../code/app-code/frontend/todo-vuejs/README.md)
+  - Kubernetes Dashboard [http://localhost:8080/dashboard/](http://localhost:8080/dashboard/) [Learn more](../code/k8s-common-code/k8sdashboard/README.md)
+  - Grafana Monitoring [http://localhost:8080/monitoring-grafana/](http://localhost:8080/monitoring-grafana/) [Learn more](../code/k8s-common-code/monitoring/README.md)
 
 
 4. Get the ssh-configuration snippet for your Vagrant VM and add it to your `~/.ssh/config` file; these commands will do this:
