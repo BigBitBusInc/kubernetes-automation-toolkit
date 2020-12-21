@@ -36,13 +36,13 @@ ssh -i private_key_file theuser@publicip -L 8080:localhost:80 -N
 For Windows, see [this file](windows-setup.md) on how to setup Putty for port forwarding.
 
  You can now open a web-browser and reach these end-points
-  - Todo application Vuejs Frontend [http://localhost:8080/frontend/](http://localhost:8080/frontend/) [Learn more](../code/app-code/api/todo-python-django/README.md)
-  - Todo application browsable API [http://localhost:8080/djangoapi/api/v1/](http://localhost:8080/djangoapi/api/v1) [Learn more](../code/app-code/frontend/todo-vuejs/README.md)
-  - Kubernetes Dashboard [http://localhost:8080/dashboard/](http://localhost:8080/dashboard/) [Learn more](../code/k8s-common-code/k8sdashboard/README.md)
-  - Grafana Monitoring [http://localhost:8080/monitoring-grafana/](http://localhost:8080/monitoring-grafana/) [Learn more](../code/k8s-common-code/monitoring/README.md)
+  - Todo application Vuejs Frontend [http://localhost:8080/frontend/](http://localhost:8080/frontend/) [Learn more](../code/app-code/frontend/todo-vuejs/)
+  - Todo application browsable API [http://localhost:8080/djangoapi/api/v1/](http://localhost:8080/djangoapi/api/v1) [Learn more](../code/app-code/api/todo-python-django/)
+  - Kubernetes Dashboard [http://localhost:8080/dashboard/](http://localhost:8080/dashboard/) [Learn more](../code/k8s-common-code/k8sdashboard/)
+  - Grafana Monitoring [http://localhost:8080/monitoring-grafana/](http://localhost:8080/monitoring-grafana/) [Learn more](../code/k8s-common-code/monitoring/)
 
 
-3. Get the ssh-configuration snippet for your cloud VM and add it to your `~/.ssh/config` file (learn more about ssh config files [here](https://linuxize.com/post/using-the-ssh-config-file/)).
+1. Get the ssh-configuration snippet for your cloud VM and add it to your `~/.ssh/config` file (learn more about ssh config files [here](https://linuxize.com/post/using-the-ssh-config-file/)).
    
 Confirm that you can now log into the Vagrant VM by simply typing `ssh vmname-in-ssh-config` on the commandline.
 
@@ -50,7 +50,7 @@ Confirm that you can now log into the Vagrant VM by simply typing `ssh vmname-in
   - Launch [k9s from the terminal](https://k9scli.io/) and surf your Kubernetes cluster and all its objects.
   - If you prefer using the official Kubernetes CLI  then  read the `kubectl` cheat-sheet [here](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
 
-5. Head over to our [documentation](./README.md) to learn the concepts and start understanding the code behind the components..
+5. Head over to our [documentation](./) to learn the concepts and start understanding the code behind the components..
 
 ***The next steps are optional but very useful if you are planning to get productive as a developer***
 

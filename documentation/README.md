@@ -2,7 +2,7 @@
 
 **TABLE OF CONTENTS**
 
-- [BigBitBus KAT Documentation](#kubernetes-automation-toolkit-documentation)
+- [BigBitBus KAT Documentation](#bigbitbus-kat-documentation)
 - [What is in the repository?](#what-is-in-the-repository)
   - [Containers](#containers)
   - [Kubernetes](#kubernetes)
@@ -39,7 +39,7 @@ Here are some of the highlights of the KAT
 We have documented several aspects of the setup. Here is where everything is:
 | Category | File or Directory  | Description |
 |---|---|---|
-| Documentation | [README.md](./documentation/README.md) | This document. Start here for an overview and links to other documents |
+| Documentation | [README.md](./documentation/) | This document. Start here for an overview and links to other documents |
 | Todo Django API | [../code/app-code/api/todo-python-django](../code/app-code/api/todo-python-django) | Django Python todo backend and a detailed readme file; includes Helm chart deployed using Skaffold |
 | Postgresql DB | [../code/k8s-common-code/postgres-db](../code/k8s-common-code/postgres-db) | Installing and configuring Postgresql database into the Kubernetes cluster using Helm charts |
 | Vuejs Todo Single Page Application | [../code/app-code/frontend/todo-vuejs](../code/app-code/frontend/todo-vuejs) | Todo application implemented in Vuejs and a readme file; includes Helm chart deployed using Skaffold |
