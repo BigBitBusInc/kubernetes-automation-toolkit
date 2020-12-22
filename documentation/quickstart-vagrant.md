@@ -29,7 +29,7 @@ vagrant ssh-config >> ~/.ssh/config
 # For Windows
 vagrant ssh-config >> ~\.ssh\config
 ```
-Confirm that you can now log into the Vagrant VM by simply typing `ssh default` on the commandline.
+Confirm that you can now log into the Vagrant VM by simply typing `vagrant ssh` on the commandline while in the same directory as the Vagrantfile that created the VM - in our case this is the root directory of the KAT repository.
 
 5. Once you are logged into the VM there are many things to do
   - Launch [k9s from the terminal](https://k9scli.io/) and surf your Kubernetes cluster and all its objects.

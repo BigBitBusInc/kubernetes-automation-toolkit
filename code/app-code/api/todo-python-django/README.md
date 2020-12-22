@@ -134,7 +134,7 @@ microk8s.enable dns
 microk8s.enable storage
 microk8s.enable registry
 microk8s.enable ingress
-
+```
 #### Postgres Database
 
 Create the postgres database via a standard Helm chart; run the following commands in a terminal window.
@@ -180,7 +180,7 @@ Once the the backend is installed, we can use the ingress to access the applicat
 
 Point your browser at http://host:[port]/djangoapi/apis/v1/ and check if you can browse the API and add/remove/list items etc.
 
-Now you can point your web browser to `http://localhost/djangoapi/api/v1/` to browse the API. (note that tis i)
+Now you can point your web browser to `http://localhost/djangoapi/api/v1/` to browse the API.
 
 ## Pitfalls, Common Mistakes
 TBD
