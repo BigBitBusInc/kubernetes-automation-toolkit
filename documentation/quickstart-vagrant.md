@@ -41,6 +41,14 @@ Confirm that you can now log into the Vagrant VM by simply typing `ssh default` 
 
 8. Open VS Code and configure it to connect remotely to the Vagrant VM. Load up the KAT code in the home directory of the Vagrant user. Tweak it, break it, fix it and choose whether this way of development will work for you!
 
+### Pitfalls and Troubleshooting
+  1. If you run `vagrant suspend` and then `vagrant reload` between putting your PC to sleep then you may find that Microk8s does not start within the VM. Log into the VM and type `microk8s start` to get back on track.
+  2. You can also setup port-forwarding using ssh; along the lines of 
+   ```bash
+   ssh vagrant-vm-name-in-ssh-config -L 8080:localhost:80 -N
+   ```
+   For Windows you can look at some of the screenshots in [this file](windows-setup.md) to get an idea of how to set ssh port-forwarding  with [Putty](https://www.putty.org/).
+
 ## Cleanup
 
 To destroy the Vagrant VM, open a terminal and go to the kubernetes-automation-toolkit (root directory of the git repository where the Vagrantfile lives) and simply type

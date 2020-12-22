@@ -31,6 +31,12 @@ You may not have the knowledge to find the root cause of a failure or bug, but y
 
 Remember that the issue may not be limited to your application only - there may be problems with Kubernetes systems pods in the `kube-system` namespace for example.
 
+#### Debugging Microk8s
+
+[Troubleshooting documentation](https://microk8s.io/docs/troubleshooting) on the Microk8s may help you understand and resolve Microk8s issues.
+
+Log into your VM and start with `microk8s inspect`.
+
 
 ### 2. Searching Forums for Solutions
 
@@ -52,4 +58,6 @@ Also, make sure you close the issue once its resolved, along with a note on how 
 
 Here is an example of an issue we faced with Microk8s and how the [Github issue](https://github.com/ubuntu/microk8s/issues/1829) in that project helped us find a solution.
 
+### KAT Specific Issues 
 
+If you feel you have encountered a bug in the KAT code or documentation, or if you want to make an improvement then please open a Github issue so we can triage it. We encourage you to first search the pre-existing issues before creating a new one. [Link to KAT issues](https://github.com/BigBitBusInc/kubernetes-automation-toolkit/issues).
