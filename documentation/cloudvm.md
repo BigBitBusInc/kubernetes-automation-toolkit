@@ -22,7 +22,7 @@ echo "Step 1: Microk8s and infrastructure components"
 curl -L -s https://raw.githubusercontent.com/BigBitBusInc/kubernetes-automation-toolkit/$RELEASENAME/code/local-kubernetes-cluster-installation/install-microk8s-on-ubuntu.sh | bash | tee /var/log/bigbitbus-microk8s-install.log
 echo "Step 2: Application code"
 curl -L -s https://raw.githubusercontent.com/BigBitBusInc/kubernetes-automation-toolkit/$RELEASENAME/code/local-kubernetes-cluster-installation/install-application-stack.sh | bash -s $RELEASENAME | tee /var/log/bigbitbus-kat-application-code-install.log
-echo "Kubeconfig (don't print/share this in production!)"
+echo "Kubeconfig (don't print/share this in production)"
 microk8s config
 ```
 
@@ -38,8 +38,9 @@ For Windows, see [this file](windows-setup.md) on how to setup Putty for port fo
  You can now open a web-browser and reach these end-points
   - Todo application Vuejs Frontend [http://localhost:8080/frontend/](http://localhost:8080/frontend/) [Learn more](../code/app-code/frontend/todo-vuejs/)
   - Todo application browsable API [http://localhost:8080/djangoapi/api/v1/](http://localhost:8080/djangoapi/api/v1) [Learn more](../code/app-code/api/todo-python-django/)
-  - Kubernetes Dashboard [http://localhost:8080/dashboard/](http://localhost:8080/dashboard/) [Learn more](../code/k8s-common-code/k8sdashboard/)
-  - Grafana Monitoring [http://localhost:8080/monitoring-grafana/](http://localhost:8080/monitoring-grafana/) [Learn more](../code/k8s-common-code/monitoring/)
+  - Kubernetes Dashboard [http://localhost:8080/dashboard/](http://localhost:8080/dashboard/) [Learn more](../code/k8s-common-code/k8sdashboard/) (Access token is printed in the Vagrant output as mentioned above).
+  - Grafana Monitoring [http://localhost:8080/monitoring-grafana/](http://localhost:8080/monitoring-grafana/) [Learn more](../code/k8s-common-code/monitoring/) (default credentials: admin/promoperator)
+
 
 
 1. Get the ssh-configuration snippet for your cloud VM and add it to your `~/.ssh/config` file (learn more about ssh config files [here](https://linuxize.com/post/using-the-ssh-config-file/)).
