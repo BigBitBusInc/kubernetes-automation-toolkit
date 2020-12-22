@@ -11,6 +11,7 @@
     - [Helm](#helm)
     - [Skaffold](#skaffold)
   - [The KAT Application Example](#the-kat-application-example)
+    - [Helpful Hints](#helpful-hints)
   - [Glossary](#glossary)
 
 Welcome to the BigBitbus Kubernetes Automation Toolkit (KAT) repository.
@@ -205,6 +206,43 @@ Now that we have a high level idea of some of the features of Kubernetes, lets v
 | 6(a) | The Prometheus time-series metrics server service, note its not exposed externally via the Ingress but is an internal service consumed by Grafana. | `kubectl -n monitoring describe pod prometheus-server` | [The Prometheus  stack Helm chart](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack), [KAT prometheus stack values file for Helm](../code/k8s-common-code/monitoring/prometheus-grafana-monitoring-stack-values.yaml). |
 | 6(b) | The prometheus server pod, note it uses a persistent volume to store the metrics | `kubectl -n monitoring get po -o wide`; `kubectl get pv`; `kubectl -n monitoring get pvc` | [The Prometheus  stack Helm chart](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack), [KAT prometheus stack values file for Helm](../code/k8s-common-code/monitoring/prometheus-grafana-monitoring-stack-values.yaml). |
 | 7 | The ingress. This is where all HTTP requests enter the Kubernetes cluster and are appropriately routed into `/frontend`, `/djangoapi`, `/dashboard/` or `/monitoring-grafana`. This is also where you would terminate SSL in production and/or interface with your cloud provider's load balancer, so ingress is a very important aspect of| `kubectl get ingress --all-namespaces -o wide` |  [Nginx Ingress documentation](https://kubernetes.github.io/ingress-nginx/) |
+
+### Helpful Hints
+
+  **Kubernetes Command Line** Also study the complete `kubectl` [cheat-sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
+  ```bash
+  # Get all namespaces; we create the be, fe, pg and monitoring namespaces in the KAT example
+  kubectl get namespaces
+
+  # Get all objects in the Kubernetes cluster
+  kubectl get all --all-namespaces
+
+  # Get all objects in a particular namespace ('be' in this example)
+  kubectl -n be get all
+
+  # Get all pods in the monitoring namespace 
+  kubectl -n monitoring get pods
+
+  # Get all services in the fe namespace
+  kubectl -n fe get svc
+
+  ```
+  
+  You can get details about a specific pod like so:
+  
+  ```bash
+  # First use `kubectl get pod` and get the name of the pod you want details about 
+  # lets say its called mypod-xszdf-asd3rd
+
+  kubectl describe pod mypod-xszdf-asd3rd # Lot of rich information here
+  kubectl logs mypod-xszdf-asd3rd # Notice we did'nt use the pod keyword here
+  ```
+
+
+
+
+
+
 
 
 <hr>
