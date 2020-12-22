@@ -78,5 +78,6 @@ microk8s.enable ingress
 kubectl get all --all-namespaces # Debug output
 sleep 60 # Sometimes these plugins need a little time to stabilize
 echo "Printing kubeconfig (don't do this in production)"
+microk8s inspect
 microk8s config
 echo "Done installing microk8s"
