@@ -12,7 +12,7 @@ This is a table of notable links to code in this repository as well as external 
 | Docker | [Dockerfile](Dockerfile)  | Docker file to create docker image.   | Get started with [Docker](https://docs.docker.com/get-started/) |
 | Kubernetes | [kubecode/bigbitbus-vue-fe/](kubecode/bigbitbus-vue-fe/) | A custom Helm chart to deploy application into a Kubernetes cluster | [Helm](https://helm.sh/docs/topics/charts/), a software packaging system for Kubernetes |
 | Kubernetes | [kubecode/bigbitbus-vue-fe/values.yaml](kubecode/bigbitbus-vue-fe/values.yaml) | The values file is a method to set parameters in the Vue frontend application Helm chart, for example the replica count | More about Helm [values](https://helm.sh/docs/chart_template_guide/values_files/) |
-| Skaffold | [skaffold.yml](skaffold.yml) | This Skaffold file contains instructions on how to deploy the application into Kubernetes | [Skaffold](https://skaffold.dev/) handles the workflow for building, pushing and deploying your application |
+| Skaffold | [skaffold.yml](skaffold.yaml) | This Skaffold file contains instructions on how to deploy the application into Kubernetes | [Skaffold](https://skaffold.dev/) handles the workflow for building, pushing and deploying your application |
 
 
 
