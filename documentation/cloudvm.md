@@ -2,6 +2,8 @@
 
 If you have access to a cloud provider or if you can sign up for one then its very straightforward to create a Ubuntu Linux virtual machine with a ssh server and public IP.
 
+This VM will cost you ~10-20 cents per hour, although you may be able to get a free VM for a limited time - for example this [Google Cloud 3-month $300 free credit](https://cloud.google.com/free) or [1 month $100 free credit from Digital Ocean](https://try.digitalocean.com/freetrialoffer/). 
+
 We will leave it to you to get a VM in the cloud provider of your choice with these features:
 
   1. A VM with at least 2 cores CPU and 4GB of RAM
@@ -60,4 +62,7 @@ Confirm that you can now log into the Vagrant VM by simply typing `ssh vmname-in
 7. Open VS Code and configure it to connect remotely to the Vagrant VM. Load up the KAT code in the home directory of the Vagrant user. Tweak it, break it, fix it and choose whether this way of development will work for you!
 
 
+ ## Cleanup
+ 
+ Please delete the Virtual Machine after you are done to avoid unneccessary charges to your cloud account.
  
