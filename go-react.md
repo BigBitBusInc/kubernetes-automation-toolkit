@@ -1,4 +1,5 @@
-### Install Dependencies 
+### Install Dependencies
+Make sure you are root.
 
 ```
 snap install microk8s --classic
