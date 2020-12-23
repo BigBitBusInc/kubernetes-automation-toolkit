@@ -16,4 +16,5 @@
 python manage.py migrate
 python manage.py collectstatic
 # This is not recommended for production; look at uwsgi in front of the Django server
+# One good approach is documented here: https://uwsgi.readthedocs.io/en/latest/tutorials/Django_and_nginx.html
 python manage.py runserver 0.0.0.0:8000
