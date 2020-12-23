@@ -32,7 +32,7 @@ Here are some of the highlights of the KAT
 1. A single-page-application written in Vuejs that lets users create a todo list.
 2. An todo API written in the Django Rest Framework in Python.
 3. The "state" is stored in a Postgresql database deployed on Kubernetes and a persistent volume are used to store the data on disk.
-4. The application can be deployed on any Kubernetes cluster. KAT includes scripts for creating a Minikube or a Microk8s Kubernetes cluster on a single node (for example, your local PC or a virtual machine).
+4. The application can be deployed on any Kubernetes cluster. KAT includes scripts for creating a Microk8s Kubernetes cluster on a single node (for example, your local PC or a virtual machine).
 5. We show how Skaffold is used to invoke the helm charts that deploy the application into the Kubernetes cluster.
 6. Monitoring Kubernetes health is provided through a prometheus server and grafana dashboards.
 7. The Kubernetes dashboard is available to visually browse the Kubernetes cluster at any time.
@@ -55,35 +55,33 @@ Here is the directory tree of this repository, which gives you another view of t
 ```
 .
 ├── code
-│   ├── app-code
-│   │   ├── api
-│   │   │   └── todo-python-django
-│   │   │       ├── apis
-│   │   │       │   └── migrations
-│   │   │       ├── config
-│   │   │       ├── kubecode
-│   │   │       │   └── bigbitbus-dj-py-api
-│   │   │       │       └── templates
-│   │   │       └── todos
-│   │   │           └── migrations
-│   │   └── frontend
-│   │       └── todo-vuejs
-│   │           ├── dist
-│   │           │   └── js
-│   │           ├── kubecode
-│   │           │   └── bigbitbus-vue-fe
-│   │           │       └── templates
-│   │           ├── public
-│   │           └── src
-│   │               ├── assets
-│   │               └── components
-│   ├── k8s-common-code
-│   │   ├── k8sdashboard
-│   │   ├── monitoring
-│   │   └── postgres-db
-│   └── local-kubernetes-cluster-installation
-│       ├── microk8s
-│       └── minikube
+│   ├── app-code
+│   │   ├── api
+│   │   │   └── todo-python-django
+│   │   │       ├── apis
+│   │   │       │   └── migrations
+│   │   │       ├── config
+│   │   │       ├── kubecode
+│   │   │       │   └── bigbitbus-dj-py-api
+│   │   │       │       └── templates
+│   │   │       └── todos
+│   │   │           └── migrations
+│   │   └── frontend
+│   │       └── todo-vuejs
+│   │           ├── dist
+│   │           │   └── js
+│   │           ├── kubecode
+│   │           │   └── bigbitbus-vue-fe
+│   │           │       └── templates
+│   │           ├── public
+│   │           └── src
+│   │               ├── assets
+│   │               └── components
+│   ├── k8s-common-code
+│   │   ├── k8sdashboard
+│   │   ├── monitoring
+│   │   └── postgres-db
+│   └── local-kubernetes-cluster-installation
 └── documentation
     └── images
 
