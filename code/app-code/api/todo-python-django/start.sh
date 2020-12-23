@@ -15,4 +15,5 @@
 
 python manage.py migrate
 python manage.py collectstatic
+# This is not recommended for production; look at uwsgi in front of the Django server
 python manage.py runserver 0.0.0.0:8000
