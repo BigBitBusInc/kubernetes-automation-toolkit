@@ -1,10 +1,10 @@
 # Quickstart with Vagrant on your PC
 
-Follow these steps to quickly deploy the KAT example. You will need a PC with at least 4 cores and 8 GB of RAM  to run KAT locally in a VM that [Hashicorp's Vagrant](https://www.vagrantup.com/downloads) will setup for you; if you don't have such a machine then please  use a cloud provider to rent a VM. We provide instructions for this alternative [here](./cloudvm.md).
+Follow these steps to quickly deploy the KAT example. You will need a PC with at least 4 cores and 8 GB of RAM  to run KAT locally in a VM that [Hashicorp's Vagrant](https://www.vagrantup.com/downloads) will setups up on your PC; if you don't have such a machine then please  use a cloud provider to rent a VM. We provide instructions for this alternative approach [here](./cloudvm.md).
 
 1. Clone this repository: `git clone https://github.com/BigBitBusInc/kubernetes-automation-toolkit.git`
 
-2. Install Vagrant for your OS (Vagrant supports Windows, Linux and MacOS); you may also need to install the hypervisor software and a vagrant plugin for this hypervisor on your platform; you should also find this information on the Vagrant installation page for your OS. 
+2. Install Vagrant for your OS (Vagrant supports Windows, Linux and MacOS); you may also need to install the hypervisor software and a vagrant plugin for this hypervisor on your platform; you should also find this information on the Vagrant installation page for your OS. [This link](https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4) lists some useful Vagrant commands.
 
 3. Navigate to the root directory of the KAT repository and enter this command in a terminal
 ```bash
