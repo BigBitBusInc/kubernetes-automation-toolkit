@@ -8,7 +8,7 @@
 
 Welcome to the BigBitBus Kubernetes Automation Toolkit (KAT).
 
-KAT is a set of software code and documentation to help understand the big picture of how a web application is developed for and deployed into a Kubernetes environment.
+KAT is a set of software code and documentation to help understand the big picture of how a web application is developed for and deployed into a Kubernetes environment. We also provide a  few [Docker Compose](https://docs.docker.com/compose/) "alternatives" in our code directories so developers can compare and contrast a Docker workflow with a Kubernetes workflow. 
 
 **TL;DR** If you want to directly deploy the KAT web application in a Kubernetes cluster on your PC, head over to our [quickstart](./documentation/quickstart-vagrant.md).
 
