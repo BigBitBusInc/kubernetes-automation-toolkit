@@ -153,7 +153,7 @@ Finally, we come to the question of service discovery. Pods are ephemeral in Kub
 
 ![Services](images/Slide14.PNG)**Fig 6: Kubernetes Services**
 
-Fig 6. shows that unlike pods, service provide stable endpoints. There are different types of services in Kubernetes, such as Cluster-IP, Load balancer, Nodeport or external name. We encourage readers to spend time with the [official services documentation](https://kubernetes.io/docs/concepts/services-networking/service/) as this is vital to get the application architecture right.
+Fig 6. shows that unlike pods, services provide stable endpoints. There are different types of services in Kubernetes, such as Cluster-IP, Load balancer, Nodeport or external name. We encourage readers to spend time with the [official services documentation](https://kubernetes.io/docs/concepts/services-networking/service/) as this is vital to get the application architecture right.
 
 
 ### Helm
@@ -203,7 +203,7 @@ Now that we have a high level idea of some of the features of Kubernetes, lets v
 | 5(b) | The Grafana pod | `kubectl -n monitoring describe po grafana` | [The Prometheus  stack Helm chart](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack), [KAT prometheus stack values file for Helm](../code/k8s-common-code/monitoring/prometheus-grafana-monitoring-stack-values.yaml). |
 | 6(a) | The Prometheus time-series metrics server service, note its not exposed externally via the Ingress but is an internal service consumed by Grafana. | `kubectl -n monitoring describe pod prometheus-server` | [The Prometheus  stack Helm chart](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack), [KAT prometheus stack values file for Helm](../code/k8s-common-code/monitoring/prometheus-grafana-monitoring-stack-values.yaml). |
 | 6(b) | The prometheus server pod, note it uses a persistent volume to store the metrics | `kubectl -n monitoring get po -o wide`; `kubectl get pv`; `kubectl -n monitoring get pvc` | [The Prometheus  stack Helm chart](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack), [KAT prometheus stack values file for Helm](../code/k8s-common-code/monitoring/prometheus-grafana-monitoring-stack-values.yaml). |
-| 7 | The ingress. This is where all HTTP requests enter the Kubernetes cluster and are appropriately routed into `/frontend`, `/djangoapi`, `/dashboard/` or `/monitoring-grafana`. This is also where you would terminate SSL in production and/or interface with your cloud provider's load balancer, so ingress is a very important aspect of| `kubectl get ingress --all-namespaces -o wide` |  [Nginx Ingress documentation](https://kubernetes.github.io/ingress-nginx/) |
+| 7 | The ingress. This is where all HTTP requests enter the Kubernetes cluster and are appropriately routed into `/frontend`, `/djangoapi`, `/dashboard/` or `/monitoring-grafana`. This is also where you would terminate SSL in production and/or interface with your cloud provider's load balancer, so ingress is usually a very important aspect of any application setup in Kubernetes. | `kubectl get ingress --all-namespaces -o wide` |  [Nginx Ingress documentation](https://kubernetes.github.io/ingress-nginx/) |
 
 ### Helpful Hints
 
@@ -273,5 +273,4 @@ Its time to head over to the code and documentation for the individual component
 * [Node](https://kubernetes.io/docs/tutorials/kubernetes-basics/explore/explore-intro/#:~:text=A%20Node%20is%20a%20worker,the%20Nodes%20in%20the%20cluster.): A worker machine in Kubernetes. May be either virtual or physical.
 
 * [Pod](https://kubernetes.io/docs/concepts/workloads/pods/): Smallest deployable units of computing in Kubernetes that are used to run a node(s)
-
 
