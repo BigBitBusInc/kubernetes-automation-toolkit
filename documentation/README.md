@@ -236,6 +236,17 @@ Now that we have a high level idea of some of the features of Kubernetes, lets v
   kubectl logs mypod-xszdf-asd3rd # Notice we did'nt use the pod keyword here
   ```
 
+Here are links to some useful documentation of different tools that are used in the KAT example.
+
+| Tool | Useful Documentation |
+| ---- | ---------- |
+| Microk8s Kubernetes Cluster | [Microk8s](https://microk8s.io/docs/commands) |
+| Kubectl Kubernetes Command Line Tool | [Kubectl](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) |
+| K9s Terminal Based Kubernetes UI | [k9s](https://k9scli.io/) |
+| Helm Kubernetes Package Manager | [Helm](https://helm.sh/docs/intro/using_helm/) |
+| Skaffold Kubernetes Develop/Deploy Tool | [Skaffold](https://skaffold.dev/docs/workflows/) |
+| Vagrant virtual machine workflow automation | [Vagrant](https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4) |
+   
 
 
 
