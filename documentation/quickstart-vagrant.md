@@ -51,7 +51,7 @@ Confirm that you can now log into the Vagrant VM by simply typing `vagrant ssh` 
    ssh vagrant-vm-name-in-ssh-config -L 8080:localhost:80 -N
    ```
    
-   For Windows you can look at some of the screenshots in [this file](windows-setup.md) to get an idea of how to set ssh port-forwarding  with [Putty](https://www.putty.org/).
+   For Windows you can look at some of the screenshots in [this file](putty-setup.md) to get an idea of how to set ssh port-forwarding  with [Putty](https://www.putty.org/).
 
 
 Here are links to some useful documentation of different tools that are used in the KAT example.

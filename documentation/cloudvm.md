@@ -35,7 +35,7 @@ For example (Mac, Linux)
 ssh -i private_key_file theuser@publicip -L 8080:localhost:80 -N
 ```
 
-For Windows, see [this file](windows-setup.md) on how to setup Putty for port forwarding.
+For Windows, see [this file](putty-setup.md) on how to setup Putty for port forwarding.
 
  You can now open a web-browser and reach these end-points
   - Todo application Vuejs Frontend [http://localhost:8080/frontend/](http://localhost:8080/frontend/) [Learn more](../code/app-code/frontend/todo-vuejs/)
