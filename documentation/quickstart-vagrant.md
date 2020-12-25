@@ -4,7 +4,7 @@ Follow these steps to quickly deploy the KAT example. You will need a PC with at
 
 1. Clone this repository: `git clone https://github.com/BigBitBusInc/kubernetes-automation-toolkit.git`
 
-2. Install Vagrant for your OS (Vagrant supports Windows, Linux and MacOS); you may also need to install the hypervisor software and a vagrant plugin for this hypervisor on your platform; you should also find this information on the Vagrant installation page for your OS. [This link](https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4) lists some useful Vagrant commands.
+2. Install `Vagrant` for your OS (Vagrant supports Windows, Linux and MacOS); you may also need to install the hypervisor software and a vagrant plugin for this hypervisor on your platform; you should also find this information on the Vagrant installation page for your OS. [Follow guidelines](../documentation/vagrant-setup.md) to setup Vagrant on your respective OS. [This link](https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4) lists some useful Vagrant commands.
 
 3. Navigate to the root directory of the KAT repository and enter this command in a terminal
 ```bash
@@ -16,7 +16,7 @@ Please be patient, even on a fast Internet connection remember we are downloadin
 
 3.   You can now open a web-browser and reach these end-points
   - Todo application Vuejs Frontend [http://localhost:8080/frontend/](http://localhost:8080/frontend/) [Learn more](../code/app-code/frontend/todo-vuejs/)
-  - Todo application browsable API [http://localhost:8080/djangoapi/api/v1/](http://localhost:8080/djangoapi/api/v1) [Learn more](../code/app-code/api/todo-python-django/)
+  - Todo application browsable API [http://localhost:8080/djangoapi/apis/v1/](http://localhost:8080/djangoapi/apis/v1) [Learn more](../code/app-code/api/todo-python-django/)
   - Kubernetes Dashboard [http://localhost:8080/dashboard/](http://localhost:8080/dashboard/) [Learn more](../code/k8s-common-code/k8sdashboard/) (Access token is printed in the Vagrant output as mentioned above).
   - Grafana Monitoring [http://localhost:8080/monitoring-grafana/](http://localhost:8080/monitoring-grafana/) [Learn more](../code/k8s-common-code/monitoring/) (default credentials: admin/promoperator)
 
@@ -51,7 +51,7 @@ Confirm that you can now log into the Vagrant VM by simply typing `vagrant ssh` 
    ssh vagrant-vm-name-in-ssh-config -L 8080:localhost:80 -N
    ```
    
-   For Windows you can look at some of the screenshots in [this file](windows-setup.md) to get an idea of how to set ssh port-forwarding  with [Putty](https://www.putty.org/).
+   For Windows you can look at some of the screenshots in [this file](putty-setup.md) to get an idea of how to set ssh port-forwarding  with [Putty](https://www.putty.org/).
 
 
 Here are links to some useful documentation of different tools that are used in the KAT example.
@@ -75,3 +75,13 @@ To destroy the Vagrant VM, open a terminal and go to the kubernetes-automation-t
 ```
 vagrant destroy
 ```
+## Useful Vagrant Commands
+| Vagrant | Cmd |
+| ---- | ---------- |
+| Start Vagrant Environment | `vagrant up` |
+| Connect to Vagrant via SSH | `vagrant ssh` |
+| Stop Vagrant Machine | `vagrant halt` |
+| Resume Vagrant Machine | `vagrant resume` |
+| Suspend Virtual Machine | `vagrant suspend` |
+| List Installed Boxes | `vagrant box list`|
+| Delete Vagrant Machine | `vagrant destroy` |

@@ -1,13 +1,4 @@
-## Setup Vagrant on Windows
-
-1. Setup `VirtualBox`. Vagrant requires VirtualBox to create Virtual Machine. Navigate to https://www.virtualbox.org/wiki/Downloads to Download Virtual Box.
-
-2. Setup `Vagrant`. Navigate to https://www.vagrantup.com/downloads to download latest version of Vagrant.
-
-3. Setup `Putty`. Navigate to https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html to download latest version of putty.
-
-
-## Connect to Cloud VM from your Local Windows Machine using Port Forwarding Technique.
+### Connect to Cloud VM from your Local Windows Machine using Port Forwarding Technique.
 
 Requirements:
 - Putty
