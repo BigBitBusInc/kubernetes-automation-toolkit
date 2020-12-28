@@ -22,7 +22,7 @@
 # Please make sure the user matches the one for which you installed and configured Kubernetes
 
 
-DEFAULTRELEASENAME="candair-0.3" # Change this as required with new tags (before you tag!!!)
+DEFAULTRELEASENAME="main" # Change this as required with new tags (before you tag!!!)
 date
 echo "Starting BigBitBus Kubernetes Automation Toolkit (KAT) cluster application installations"
 
@@ -35,6 +35,7 @@ fi
 
 echo "Installing KAT release $RELEASENAME."
 
+source /etc/environment
 export RELEASEDIRNAME="kubernetes-automation-toolkit-"$RELEASENAME
 
 if [ ! -z $2 ] 

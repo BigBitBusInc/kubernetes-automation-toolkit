@@ -1,10 +1,10 @@
 # Quickstart with Vagrant on your PC
 
-Follow these steps to quickly deploy the KAT example. You will need a PC with at least 4 cores and 8 GB of RAM  to run KAT locally in a VM that Vagrant will setup for you; if you don't have such a machine then please  use a cloud provider to rent a VM (although you may be able to get a limited time free VM). We provide instructions for this alternative [here](./cloudvm.md).
+Follow these steps to quickly deploy the KAT example. You will need a PC with at least 4 cores and 8 GB of RAM  to run KAT locally in a VM that [Hashicorp's Vagrant](https://www.vagrantup.com/downloads) will setup on your PC; if you don't have such a machine then please  use a cloud provider to rent a VM. We provide instructions for this alternative approach [here](./cloudvm.md).
 
 1. Clone this repository: `git clone https://github.com/BigBitBusInc/kubernetes-automation-toolkit.git`
 
-2. Install [Hashicorp's Vagrant](https://www.vagrantup.com/downloads) for your OS (Vagrant supports Windows, Linux and MacOS); you may also need to install the hypervisor software and a vagrant plugin for this hypervisor on your platform; you should also find this information on the Vagrant installation page for your OS. 
+2. Install Vagrant for your OS (Vagrant supports Windows, Linux and MacOS); you may also need to install the hypervisor software and a vagrant plugin for this hypervisor on your platform; you should also find this information on the Vagrant installation page for your OS. [This link](https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4) lists some useful Vagrant commands.
 
 3. Navigate to the root directory of the KAT repository and enter this command in a terminal
 ```bash
@@ -50,8 +50,24 @@ Confirm that you can now log into the Vagrant VM by simply typing `vagrant ssh` 
    ```bash
    ssh vagrant-vm-name-in-ssh-config -L 8080:localhost:80 -N
    ```
+   
    For Windows you can look at some of the screenshots in [this file](windows-setup.md) to get an idea of how to set ssh port-forwarding  with [Putty](https://www.putty.org/).
 
+
+Here are links to some useful documentation of different tools that are used in the KAT example.
+
+| Tool | Useful Documentation |
+| ---- | ---------- |
+| Microk8s Kubernetes Cluster | [Microk8s](https://microk8s.io/docs/commands) |
+| Kubectl Kubernetes Command Line Tool | [Kubectl](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) |
+| K9s Terminal Based Kubernetes UI | [k9s](https://k9scli.io/) |
+| Helm Kubernetes Package Manager | [Helm](https://helm.sh/docs/intro/using_helm/) |
+| Skaffold Kubernetes Develop/Deploy Tool | [Skaffold](https://skaffold.dev/docs/workflows/) |
+| Vagrant virtual machine workflow automation | [Vagrant](https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4) |
+   
+
+   
+   
 ## Cleanup
 
 To destroy the Vagrant VM, open a terminal and go to the kubernetes-automation-toolkit (root directory of the git repository where the Vagrantfile lives) and simply type

@@ -36,7 +36,7 @@ Here are some of the highlights of the KAT
 5. We show how Skaffold is used to invoke Helm charts that deploy the application into the Kubernetes cluster.
 6. Monitoring Kubernetes health is provided through a prometheus server and grafana dashboards.
 7. The Kubernetes dashboard is available to visually browse the Kubernetes cluster at any time.
-8. We also include a Docker-compose file in the todo Django API directory that can be used to run the API server; this may be interesting to you if you are already using Docker(-compose) in your development workflow and wish to see how things change when you use the Helm chart and Kubernetes instead.
+8.  We also include a Docker-compose file in the todo Django API directory that can be used to run the API server; this may be interesting to you if you are already using Docker(-compose) in your development workflow and wish to see how things change when you use the Helm chart and Kubernetes instead.
    
 We have documented several aspects of the setup. Here is where everything is:
 | Category | File or Directory  | Description |
@@ -54,35 +54,33 @@ Here is the directory tree of this repository, which gives you another view of t
 ```
 .
 ├── code
-│   ├── app-code
-│   │   ├── api
-│   │   │   └── todo-python-django
-│   │   │       ├── apis
-│   │   │       │   └── migrations
-│   │   │       ├── config
-│   │   │       ├── kubecode
-│   │   │       │   └── bigbitbus-dj-py-api
-│   │   │       │       └── templates
-│   │   │       └── todos
-│   │   │           └── migrations
-│   │   └── frontend
-│   │       └── todo-vuejs
-│   │           ├── dist
-│   │           │   └── js
-│   │           ├── kubecode
-│   │           │   └── bigbitbus-vue-fe
-│   │           │       └── templates
-│   │           ├── public
-│   │           └── src
-│   │               ├── assets
-│   │               └── components
-│   ├── k8s-common-code
-│   │   ├── k8sdashboard
-│   │   ├── monitoring
-│   │   └── postgres-db
-│   └── local-kubernetes-cluster-installation
-│       ├── microk8s
-│       └── minikube
+│   ├── app-code
+│   │   ├── api
+│   │   │   └── todo-python-django
+│   │   │       ├── apis
+│   │   │       │   └── migrations
+│   │   │       ├── config
+│   │   │       ├── kubecode
+│   │   │       │   └── bigbitbus-dj-py-api
+│   │   │       │       └── templates
+│   │   │       └── todos
+│   │   │           └── migrations
+│   │   └── frontend
+│   │       └── todo-vuejs
+│   │           ├── dist
+│   │           │   └── js
+│   │           ├── kubecode
+│   │           │   └── bigbitbus-vue-fe
+│   │           │       └── templates
+│   │           ├── public
+│   │           └── src
+│   │               ├── assets
+│   │               └── components
+│   ├── k8s-common-code
+│   │   ├── k8sdashboard
+│   │   ├── monitoring
+│   │   └── postgres-db
+│   └── local-kubernetes-cluster-installation
 └── documentation
     └── images
 
@@ -160,7 +158,7 @@ Finally, we come to the question of service discovery. Pods are ephemeral in Kub
 
 ![Services](images/Slide14.PNG)**Fig 6: Kubernetes Services**
 
-Fig 6. shows that unlike pods, service provide stable endpoints. There are different types of services in Kubernetes, such as Cluster-IP, Load balancer, Nodeport or external name. We encourage readers to spend time with the [official services documentation](https://kubernetes.io/docs/concepts/services-networking/service/) as this is vital to get the application architecture right.
+Fig 6. shows that unlike pods, services provide stable endpoints. There are different types of services in Kubernetes, such as Cluster-IP, Load balancer, Nodeport or external name. We encourage readers to spend time with the [official services documentation](https://kubernetes.io/docs/concepts/services-networking/service/) as this is vital to get the application architecture right.
 
 
 ### Helm
@@ -210,7 +208,7 @@ Now that we have a high level idea of some of the features of Kubernetes, lets v
 | 5(b) | The Grafana pod | `kubectl -n monitoring describe po grafana` | [The Prometheus  stack Helm chart](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack), [KAT prometheus stack values file for Helm](../code/k8s-common-code/monitoring/prometheus-grafana-monitoring-stack-values.yaml). |
 | 6(a) | The Prometheus time-series metrics server service, note its not exposed externally via the Ingress but is an internal service consumed by Grafana. | `kubectl -n monitoring describe pod prometheus-server` | [The Prometheus  stack Helm chart](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack), [KAT prometheus stack values file for Helm](../code/k8s-common-code/monitoring/prometheus-grafana-monitoring-stack-values.yaml). |
 | 6(b) | The prometheus server pod, note it uses a persistent volume to store the metrics | `kubectl -n monitoring get po -o wide`; `kubectl get pv`; `kubectl -n monitoring get pvc` | [The Prometheus  stack Helm chart](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack), [KAT prometheus stack values file for Helm](../code/k8s-common-code/monitoring/prometheus-grafana-monitoring-stack-values.yaml). |
-| 7 | The ingress. This is where all HTTP requests enter the Kubernetes cluster and are appropriately routed into `/frontend`, `/djangoapi`, `/dashboard/` or `/monitoring-grafana`. This is also where you would terminate SSL in production and/or interface with your cloud provider's load balancer, so ingress is a very important aspect of| `kubectl get ingress --all-namespaces -o wide` |  [Nginx Ingress documentation](https://kubernetes.github.io/ingress-nginx/) |
+| 7 | The ingress. This is where all HTTP requests enter the Kubernetes cluster and are appropriately routed into `/frontend`, `/djangoapi`, `/dashboard/` or `/monitoring-grafana`. This is also where you would terminate SSL in production and/or interface with your cloud provider's load balancer, so ingress is usually a very important aspect of any application setup in Kubernetes. | `kubectl get ingress --all-namespaces -o wide` |  [Nginx Ingress documentation](https://kubernetes.github.io/ingress-nginx/) |
 
 ### Helpful Hints
 
@@ -243,6 +241,17 @@ Now that we have a high level idea of some of the features of Kubernetes, lets v
   kubectl logs mypod-xszdf-asd3rd # Notice we did'nt use the pod keyword here
   ```
 
+Here are links to some useful documentation of different tools that are used in the KAT example.
+
+| Tool | Useful Documentation |
+| ---- | ---------- |
+| Microk8s Kubernetes Cluster | [Microk8s](https://microk8s.io/docs/commands) |
+| Kubectl Kubernetes Command Line Tool | [Kubectl](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) |
+| K9s Terminal Based Kubernetes UI | [k9s](https://k9scli.io/) |
+| Helm Kubernetes Package Manager | [Helm](https://helm.sh/docs/intro/using_helm/) |
+| Skaffold Kubernetes Develop/Deploy Tool | [Skaffold](https://skaffold.dev/docs/workflows/) |
+| Vagrant virtual machine workflow automation | [Vagrant](https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4) |
+   
 
 
 
@@ -280,5 +289,4 @@ Its time to head over to the code and documentation for the individual component
 * [Node](https://kubernetes.io/docs/tutorials/kubernetes-basics/explore/explore-intro/#:~:text=A%20Node%20is%20a%20worker,the%20Nodes%20in%20the%20cluster.): A worker machine in Kubernetes. May be either virtual or physical.
 
 * [Pod](https://kubernetes.io/docs/concepts/workloads/pods/): Smallest deployable units of computing in Kubernetes that are used to run a node(s)
-
 
