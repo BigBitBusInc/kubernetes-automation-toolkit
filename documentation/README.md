@@ -261,27 +261,13 @@ Its time to head over to the code and documentation for the individual component
 
 ## Glossary
 
-* [Helm](https://helm.sh/): A package manager for Kubernetes
-
-* [Skaffold](https://skaffold.dev/): An automated build tool for Kubernetes
-
-* [Kubernetes](https://kubernetes.io/): An open-source container-orchestration system for automating computer application deployment, scaling, and management
-
-* [Django](https://www.djangoproject.com/): Python-based free and open-source web framework
-
-* [Vue](https://vuejs.org/): An open-source front end JavaScript framework for building user interfaces and single-page applications
-
-* [Prometheus](https://prometheus.io/): Kubernetes monitoring tool
-
-* [Grafana](https://grafana.com/): Observisibility dashboarding and logging tool
-
-* [PostgreSQL](https://www.postgresql.org/): An open-source relational database management system
-
-* [Microk8s](https://microk8s.io/): A lightweight, production-ready Kubernetes distribution
-
-* [Minikube](https://kubernetes.io/docs/tasks/tools/#:~:text=Like%20kind%20%2C%20minikube%20is%20a,or%20for%20daily%20development%20work.): A tool that lets you run Kubernetes locally
-
-* [Node](https://kubernetes.io/docs/tutorials/kubernetes-basics/explore/explore-intro/#:~:text=A%20Node%20is%20a%20worker,the%20Nodes%20in%20the%20cluster.): A worker machine in Kubernetes. May be either virtual or physical.
-
-* [Pod](https://kubernetes.io/docs/concepts/workloads/pods/): Smallest deployable units of computing in Kubernetes that are used to run a node(s)
-
+| Term | Description | Link/further Reading |
+| --- | --- | ---- |
+| Django | Python-based free and open-source web framework | [Official Django documentation](https://www.djangoproject.com/), [Example To-do API backend written in Django](../code/app-code/api/todo-python-django/) |
+| Helm | A package manager for Kubernetes | [Official Helm documentation](https://helm.sh/), [Example of a Helm chart in this repository](../code/app-code/api/todo-python-django/kubecode/bigbitbus-dj-py-api/) |
+| Kubernetes | An open-source container-orchestration system for automating computer application deployment, scaling, and management | [Kubernetes](https://kubernetes.io/) |
+| Microk8s | A lightweight, production-ready Kubernetes distribution | [Microk8s](https://microk8s.io/) |
+| PostgresSQL | An open-source relational database management system | [PostgreSQL](https://www.postgresql.org/), [Example Postgres setup in Kubernetes](../code/k8s-common-code/postgres-db/) |
+| Prometheus and Grafana | Time series database and metrics querying system and UI | [Official Prometheus documentation](https://prometheus.io/), [Example Prometheus stack setup](../code/k8s-common-code/monitoring/) |
+| Skaffold | A build and deploy tool for Kubernetes | [Official Skaffold documentation](https://skaffold.dev/), [Example of a Skaffold definition file in yaml](../code/app-code/api/todo-python-django/skaffold.yml) |
+| Vue |   An open-source front end JavaScript framework for building user interfaces and single-page applications |  [Official Vue documentation](https://vuejs.org/), [Example To-do frontend written in Vue](../code/app-code/frontend/todo-vuejs/kubecode/bigbitbus-vue-fe/) |
