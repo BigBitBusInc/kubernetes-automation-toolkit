@@ -4,8 +4,7 @@ Follow these steps to quickly deploy the KAT example. You will need a PC with at
 
 1. Clone this repository: `git clone https://github.com/BigBitBusInc/kubernetes-automation-toolkit.git`
 
-2. Install `Vagrant` for your OS (Vagrant supports Windows, Linux and MacOS); you may also need to install the hypervisor software and a vagrant plugin for this hypervisor on your platform; you should also find this information on the Vagrant installation page for your OS. [Follow guidelines](../documentation/vagrant-setup.md) to setup Vagrant on your respective OS. [This link](https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4) lists some useful Vagrant commands.
-
+2. Install `Vagrant` for your OS (Vagrant supports Windows, Linux and MacOS); you may also need to install the hypervisor software and a vagrant plugin for this hypervisor on your platform; We have [guidelines](../documentation/vagrant-setup.md) on how to setup Vagrant on your PC. 
 3. Navigate to the root directory of the KAT repository and enter this command in a terminal
 ```bash
 cd kubernetes-automation-toolkit
@@ -85,3 +84,5 @@ vagrant destroy
 | Suspend Virtual Machine | `vagrant suspend` |
 | List Installed Boxes | `vagrant box list`|
 | Delete Vagrant Machine | `vagrant destroy` |
+
+[This link](https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4) lists some useful Vagrant commands.
