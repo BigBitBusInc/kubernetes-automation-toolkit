@@ -1,4 +1,4 @@
-### This README goes over the steps needed to connect to the cloud VM and display the KAT example on your local Windows machine. You don't need this if you used Vagrant on your local machine.
+### Connect to Cloud VM from your Local Windows Machine using Port Forwarding Technique.
 
 Requirements:
 - Putty

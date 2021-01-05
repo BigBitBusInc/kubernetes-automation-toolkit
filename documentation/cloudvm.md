@@ -35,11 +35,11 @@ For example (Mac, Linux)
 ssh -i private_key_file theuser@publicip -L 8080:localhost:80 -N
 ```
 
-For Windows, see [this file](windows-setup.md) on how to setup Putty for port forwarding.
+For Windows, see [this file](putty-setup.md) on how to setup Putty for port forwarding.
 
  You can now open a web-browser and reach these end-points
   - Todo application Vuejs Frontend [http://localhost:8080/frontend/](http://localhost:8080/frontend/) [Learn more](../code/app-code/frontend/todo-vuejs/)
-  - Todo application browsable API [http://localhost:8080/djangoapi/api/v1/](http://localhost:8080/djangoapi/api/v1) [Learn more](../code/app-code/api/todo-python-django/)
+  - Todo application browsable API [http://localhost:8080/djangoapi/apis/v1/](http://localhost:8080/djangoapi/apis/v1) [Learn more](../code/app-code/api/todo-python-django/)
   - Kubernetes Dashboard [http://localhost:8080/dashboard/](http://localhost:8080/dashboard/) [Learn more](../code/k8s-common-code/k8sdashboard/) (Access token is printed in the Vagrant output as mentioned above).
   - Grafana Monitoring [http://localhost:8080/monitoring-grafana/](http://localhost:8080/monitoring-grafana/) [Learn more](../code/k8s-common-code/monitoring/) (default credentials: admin/promoperator)
 

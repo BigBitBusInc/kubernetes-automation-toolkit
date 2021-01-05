@@ -1,8 +1,10 @@
-<center>
-<img src="documentation/images/kubernetes-application.svg"  alt="BigBitBus KAT components" width="400"/>
-</center>
+<div align="center">
+    <h1> BigBitBus KAT Components</h1>
+    <img src="documentation/images/kubernetes-application.svg"  alt="BigBitBus KAT components" width="400"/>
 
-**Components of the BigBitBus KAT application code. Click on the diagram to enlarge, or follow [this link](documentation/) for detailed documentation**
+<!-- **Components of the BigBitBus KAT application code. Click on the diagram to enlarge, or follow [this link](documentation/) for detailed documentation** -->
+**Click on the diagram to enlarge, or follow [this link](documentation/) for detailed documentation** 
+</div>
 
 # Introduction
 
@@ -16,7 +18,6 @@ Most components of the Kubernetes cloud native ecosystem are extremely well docu
 
 From here, we recommend you start with a [review of some Kubernetes and related concepts](./documentation/) we have put together. Or, if you want to directly go to the code and examples you can navigate the folders in the repository, the table below will launch you right in.
 
-
 # What is where?
 
 | Category | File or Directory  | Description |
@@ -27,6 +28,12 @@ From here, we recommend you start with a [review of some Kubernetes and related 
 | Vuejs Todo Single Page Application | [code/app-code/frontend/todo-vuejs](code/app-code/frontend/todo-vuejs) | Todo application implemented in Vuejs; includes Helm chart deployed using Skaffold |
 | Monitoring | [code/k8s-common-code/monitoring](code/k8s-common-code/monitoring) |Installing and configuring monitoring with Prometheus and Grafana into the Kubernetes cluster using standard Helm charts created by the Prometheus community |
 | Kubernetes Dashboard | [code/k8s-common-code/k8sdashboard](code/k8s-common-code/k8sdashboard) | Deploying the Kubernetes dashboard, a browser-based GUI view of the Kubernetes cluster |
+
+# Deploy KAT Project
+| Deployment | File or Directory | Description |
+|---|---|---|
+| Cloud Native | [documentation/cloudvm.md](./documentation/cloudvm.md) | Deploy KAT on a Cloud |
+| Local System | [documentation/quickstart-vagrant.md](./documentation/quickstart-vagrant.md) | Deploy KAT on your Local System|
 
 # License
 
