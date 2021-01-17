@@ -1,6 +1,6 @@
 ## Setup Vagrant on Windows
 
-1. Install `VirtualBox`. Vagrant requires VirtualBox to create Virtual Machine. Navigate to https://www.virtualbox.org/wiki/Downloads to Download Virtual Box.
+1. Install `VirtualBox`. Vagrant requires VirtualBox to create Virtual Machine. Navigate to https://www.virtualbox.org/wiki/Downloads to Download Virtual Box. Alternatively, if you have [HyperV enabled on your Windows PC](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) then you can use this instead of VirtualBox. Note that HyperV is not available on the "Home" edition of Windows 10.
 
 2. Install `Vagrant`. Navigate to https://www.vagrantup.com/downloads to download latest version of Vagrant.
 
