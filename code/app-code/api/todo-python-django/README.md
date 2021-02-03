@@ -1,8 +1,8 @@
 # Python Django Rest Framework Todo API
 
-The Python Django Todo API implements a RESTFul HTTP API for a to-do list. It is derived from [this tutorial](https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api).
+The Python Django To-do API in this folder implements a RESTFul HTTP API for a to-do list. It is derived from [this tutorial](https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api).
 
-In the discussion below we assume you will be choosing Microk8s for installing the software on your local PC or a virtual machine.
+In the discussion below we assume you will be choosing Microk8s for installing the software on your local PC or a virtual machine in the cloud.
 
 __We recommend using Microk8s if you are running the Ubuntu Linux Operating system on your host. We also strongly discourage users from trying to install helm/kubectl/skaffold/Minikube directly on Windows. Instead, create a Ubuntu VM [in the cloud](../../../../documentation/cloudvm.md) or your [Windows machine with Vagrant](../../../../../documentation/../kubernetes-automation-toolkit/documentation/quickstart-vagrant.md).__
 
@@ -22,7 +22,7 @@ This is a table of notable links to code in this repository as well as external 
 
 ## Installation
 
-We assume you have access to a reasonable local computer with a broadband internet connection capable of downloading multiple gigabytes of data (mostly for Docker images).
+We assume you have access to a reasonably powerful local computer with a broadband internet connection capable of downloading multiple gigabytes of data (mostly for Docker images).
 ### Pre-requisite Software
 
 
@@ -31,7 +31,7 @@ We assume you have access to a reasonable local computer with a broadband intern
 3. [Install Helm](https://helm.sh/docs/intro/install/) package manager client on your computer (version 3 or greater).
 4. [Install Skaffold](https://skaffold.dev/docs/install/) on your computer.
 
-**Note: If running on a Windows machine: Use a text editor (ex. VSCode) to change the EOL sequence of the start.sh file from CRLF to LF.**
+
 
 ### Development on your Local PC
 Developers may want to iterate through their code as they develop software on their local PC. We will run the to-do Django code on our PC for debugging and connect to a postgres database running on a container.
@@ -103,6 +103,9 @@ docker-compose build # Build the Docker image with the latest code in this repos
 docker-compose up
 
 ```
+
+**Note: If you are using a Windows machine: Use a text editor (ex. VSCode) to first change the EOL sequence of the start.sh file from `CRLF` to `LF` before building the docker container.**
+
 Now you can open a web browser and point it to `http://localhost:8000/djangoapi/apis/v1/` to browse and interact with the todo API backend.
 
 Note we selected port 8000 for this case (not 8002) so you can have both the development and the pre-baked software running in the image on the same machine (albeit interacting with the same database). Make a note that when you try to point the Todo [frontend](../../frontend/todo-vuejs) you will need to set the correct backend server and port in the [.env](../../frontend/todo-vuejs/.env) file there for the `VUE_APP_DJANGO_ENDPOINT` variable.
@@ -110,7 +113,7 @@ Note we selected port 8000 for this case (not 8002) so you can have both the dev
 
 Finally, we are ready to deploy to Kubernetes!
 
-This discussion assumes that you have a your `kubectl` command-line client configured and pointing to the correct Kubernetes cluster.
+This discussion assumes that you have a your `kubectl` command-line client configured and pointing to the correct Kubernetes cluster (e.g. a Microk8s cluster).
 
 Verify that kubectl is correctly configured: for Microk8s running this command should give you an output similar to this
 
@@ -121,7 +124,7 @@ NAME                 STATUS   ROLES    AGE   VERSION
 
 ```
 
-If this doesn't work, debug the local Kubernetes cluster installation befre proceeding based on your Kubernetes installation documentation.
+If this doesn't work, debug the local Kubernetes cluster installation before proceeding based on your Kubernetes installation documentation.
 
 #### Addons for local Kubernetes (Microk8s)
 
@@ -158,7 +161,7 @@ kubectl -n pg delete pvc data-pgdb-postgresql-0
 
 #### Backend todo API
 
-Then, install the to-do API
+Install the to-do API
 ```
 # Backend
 kubectl create namespace be
@@ -168,10 +171,8 @@ cd kubernetes-automation-toolkit/code/app-code/api/todo-python-django/
 skaffold run --default-repo localhost:32000
 ```
 
-You can always make code changes to the frontend and then run the skaffold `run` command again to deploy the changes into the Kubernetes cluster. Learn more about other [skaffold developer and operations workflows](https://skaffold.dev/docs/workflows/).
+You can always make code changes and then run the skaffold `run` command again to deploy the changes into the Kubernetes cluster. Learn more about other [skaffold developer and operations workflows](https://skaffold.dev/docs/workflows/).
 
-
-We have just used Skaffold to deploy the Helm chart of our to-do API into the Kubernetes cluster.
 
 **Side note:** If you are looking to create a Helm chart for your own project we recommend starting from the boiler-plate code generated by [`helm create`](https://helm.sh/docs/helm/helm_create/). This command will create a basic layout that you can then adapt to your application.
 ## Usage
