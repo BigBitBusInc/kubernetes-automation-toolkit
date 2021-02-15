@@ -2,13 +2,11 @@
 
 The Python Django Todo API implements a RESTFul HTTP API for a to-do list. It is derived from [this tutorial](https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api).
 
-In the discussion below we assume you will be choosing Microk8s for installing the software on your local PC or a virtual machine.
-
-__We recommend using Microk8s if you are running the Ubuntu Linux Operating system on your host. We also strongly discourage users from trying to install helm/kubectl/skaffold/Minikube directly on Windows. Instead, create a Ubuntu VM [in the cloud](../../../../documentation/cloudvm.md) or your [Windows machine with Vagrant](../../../../../documentation/../kubernetes-automation-toolkit/documentation/quickstart-vagrant.md).__
+In the discussion below we assume you will be choosing Microk8s for installing Kubernetes on your local PC or a virtual machine.
 
 ## Notable Code
 
-This is a table of notable links to code in this repository as well as external links in case you wish to learn about these topics.
+This is a table of notable links to the Django API code in this directory as well as external links in case you wish to learn about these topics.
 | Category | File or Directory  | Description | Notes and External Links |
 |---|---|---|---|
 | Django | [apis/](apis/) |  Django REST framework application written in Python  |  Learn more about [Django](https://www.djangoproject.com/) and the [Django Rest Framework](https://www.django-rest-framework.org/)|
@@ -19,22 +17,25 @@ This is a table of notable links to code in this repository as well as external 
 | Skaffold | [skaffold.yml](skaffold.yml) | This Skaffold file contains instructions on how to deploy the application into Kubernetes | [Skaffold](https://skaffold.dev/) handles the workflow for building, pushing and deploying your application |
 
 
-
 ## Installation
 
-We assume you have access to a reasonable local computer with a broadband internet connection capable of downloading multiple gigabytes of data (mostly for Docker images).
-### Pre-requisite Software
+We assume you have access to a reasonably capable local computer (at least 4 processor cores, 8GB RAM and 50GB of free disk space) with a broadband internet connection capable of downloading multiple gigabytes of data (mostly for Docker images).
 
+
+**Note: If running on a Windows machine: Use a text editor (ex. VSCode) to change the EOL sequence of the start.sh file from CRLF to LF.**
+
+### Development on your Local PC
+
+Developers may want to iterate through their code as they develop software on their local PC. We will run the to-do Django code on our PC for debugging and connect to a postgres database running on a container. If you use Windows OS or don't have root access on your PC you can consider performing the below steps  inside a Linux virtual machine on your PC.
+
+### Pre-requisite Software
 
 1. [Install Docker](https://docs.docker.com/get-docker/) and [Docker-compose](https://docs.docker.com/compose/install/) on your computer.
 2. [Install Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/), the Kubernetes command line interface client, on your computer.
 3. [Install Helm](https://helm.sh/docs/intro/install/) package manager client on your computer (version 3 or greater).
 4. [Install Skaffold](https://skaffold.dev/docs/install/) on your computer.
 
-**Note: If running on a Windows machine: Use a text editor (ex. VSCode) to change the EOL sequence of the start.sh file from CRLF to LF.**
 
-### Development on your Local PC
-Developers may want to iterate through their code as they develop software on their local PC. We will run the to-do Django code on our PC for debugging and connect to a postgres database running on a container.
 
 Open a terminal and create a virtual environment for Python (Assuming you have already installed Python 3.8 or later on your PC):
 
@@ -91,9 +92,10 @@ python manage.py runserver 0.0.0.0:8002
 The API will now be available at `http://localhost:8002/djangoapi/apis/v1/`
 
 Now you can develop the application and Django will "hot-reload" as you change code; this saves a lot of developer time because you do not have to re-build the image to test it every time.
+
 ### Run pre-baked image on your Local PC with Docker-compose
 
-Once we are satisfied that the application has been developed to our satisfaction we should test its pre-baked image locally. The pre-baked immutable image is what gets passed from development to qa and finally to production without being changed, so its quite useful to be able to quickly spin up the pre-baked image on our local PC via docker-compose.
+Once we are satisfied that the application has been developed to our satisfaction we should test its pre-baked image locally. The pre-baked immutable image is what gets passed from development to qa and finally to production without being changed, so it is quite useful to be able to quickly spin up the pre-baked image on our local PC via docker-compose and test everything works before deploying it to QA and production.
 
 We can use `docker-compose` to run the todo API and the Postgres database on our local PC, like so:
 
@@ -106,6 +108,7 @@ docker-compose up
 Now you can open a web browser and point it to `http://localhost:8000/djangoapi/apis/v1/` to browse and interact with the todo API backend.
 
 Note we selected port 8000 for this case (not 8002) so you can have both the development and the pre-baked software running in the image on the same machine (albeit interacting with the same database). Make a note that when you try to point the Todo [frontend](../../frontend/todo-vuejs) you will need to set the correct backend server and port in the [.env](../../frontend/todo-vuejs/.env) file there for the `VUE_APP_DJANGO_ENDPOINT` variable.
+
 ### Run in Kubernetes
 
 Finally, we are ready to deploy to Kubernetes!
@@ -176,7 +179,7 @@ We have just used Skaffold to deploy the Helm chart of our to-do API into the Ku
 **Side note:** If you are looking to create a Helm chart for your own project we recommend starting from the boiler-plate code generated by [`helm create`](https://helm.sh/docs/helm/helm_create/). This command will create a basic layout that you can then adapt to your application.
 ## Usage
 
-Once the the backend is installed, we can use the ingress to access the application
+Once the the backend is installed, we can use the ingress to access the application; ingress routes HTTP traffic to the appropriate services in the Kubernetes cluster (our to-do application in this case).
 
 Point your browser at http://host:[port]/djangoapi/apis/v1/ and check if you can browse the API and add/remove/list items etc.
 
