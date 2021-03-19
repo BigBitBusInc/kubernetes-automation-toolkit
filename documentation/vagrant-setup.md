@@ -9,9 +9,9 @@
 
 ## Setup Vagrant on Mac
 
-1. Install `Virtual box` using [direct download](https://www.virtualbox.org/wiki/Downloads) or use homebrew for installing it.<br/> `brew cask install virtualbox`
+1. Install `Virtual box` using [direct download](https://www.virtualbox.org/wiki/Downloads) or use homebrew for installing it.<br/> `brew install virtualbox --cask`
 
-2. Install `Vagrant` using [direct download](https://www.vagrantup.com/downloads.html) or use homebrew for installing it.<br/> `brew cask install vagrant`
+2. Install `Vagrant` using [direct download](https://www.vagrantup.com/downloads.html) or use homebrew for installing it.<br/> `brew install vagrant --cask`
 
 
 ## Setup Vagrant on Linux
