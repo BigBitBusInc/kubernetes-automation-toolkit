@@ -13,7 +13,7 @@ vagrant up
 
 Please be patient, even on a fast Internet connection remember we are downloading and installing over 2GB of OS, Kubernetes, docker images etc. 
 
-Vagrant's output will include the `kubeconfig` for the Kubernetes cluster created within the VM, you can use the security token in this output to connect to the [Kubernetes dashboard](../k8s-common-code/k8sdashboard/).
+Vagrant's output will include the `kubeconfig` for the Kubernetes cluster created within the VM, you can use the security token in this output to connect to the [Kubernetes dashboard](../code/k8s-common-code/k8sdashboard/).
 
 3.   You can now open a web-browser and reach these end-points:
   - Todo application Vuejs Frontend [http://localhost:8080/frontend/](http://localhost:8080/frontend/) [Learn more](../code/app-code/frontend/todo-vuejs/)
