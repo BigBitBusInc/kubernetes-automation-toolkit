@@ -3,7 +3,7 @@
 
 The [Kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) is a web-based Kubernetes UI interface. Dashboard is a web-based Kubernetes user interface. You can use Dashboard to deploy containerized applications to a Kubernetes cluster, troubleshoot your containerized application, and manage the cluster resources. You can use Dashboard to get an overview of applications running on your cluster, as well as for creating or modifying individual Kubernetes resources (such as Deployments, Jobs, DaemonSets, etc). For example, you can scale a Deployment, initiate a rolling update, restart a pod or deploy new applications using a deploy wizard.
 
-**Side-note:**  [Microk8s](https://microk8s.io/docs/addon-dashboard)  has an in-built methods to install the Kubernetes dashboard; the advantage of using the helm chart as we show below is that you can configure the ingress along with your application so there is no additional port-forwarding if you are running the cluster in a remote VM. For local PC development though, the in-built dashboard invocation is very convenient.
+**Side-note:**  [Microk8s](https://microk8s.io/docs/addon-dashboard)  has an [in-built methods to install the Kubernetes dashboard](https://microk8s.io/docs/addon-dashboard); the advantage of using the helm chart as we show below is that you can configure the ingress along with your application so there is no additional port-forwarding if you are running the cluster in a remote VM. For local PC development though, the in-built dashboard invocation is very convenient.
 
 Here is how you can install the dashboard into the cluster using the Helm chart.
 
