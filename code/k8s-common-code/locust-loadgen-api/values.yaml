@@ -7,7 +7,7 @@ image:
   pullSecrets: []
 
 
-host_being_tested: http://bbbapi-bbbchart.be
+host_being_tested: http://django-backend-bigbitbus-dj-py-api.be:8000
 
 # Put this file in the /tasks directory of the helm chart
 locustfilename: locustfile.py
@@ -67,7 +67,7 @@ worker:
 
     # all files from specified configmap (or tasks folder) are mounted under `/locust-tasks`
     locust-script: "/locust-tasks/tasks.py"
-  replicaCount: 2
+  replicaCount: 1
   resources:
     limits:
       cpu: 100m

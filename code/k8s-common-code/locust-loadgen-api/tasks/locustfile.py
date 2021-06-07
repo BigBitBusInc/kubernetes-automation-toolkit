@@ -3,33 +3,39 @@ import json
 import uuid
 import random
 import string
+import json
 from math import ceil
+from random import random, choices
+
 
 class TodoUser(HttpUser):
-    url = "djangoapi/apis/v1/"
+    url = "/djangoapi/apis/v1/"
     wait_time = between(1,10)
     todo_ids = []
-    def randomString(size):
-        return ''.join(random.choices(string.ascii_uppercase 
+    def randomString(self, size):
+        return ''.join(choices(string.ascii_uppercase +
                              string.digits, k = size))
 
 
     def on_start(self):
         self.generate_todos(1000)
 
+
     def generate_todos(self, numToGen):
         self.app_name = "test-"+str(uuid.uuid4())
-        for ii in range(1,numToGen)
+        for ii in range(1,numToGen):
             body = {
-                "title": randomString(ceil(random()*50)),
-                "description": randomString(ceil(random()*250))
+                "title": self.randomString(ceil(random()*50)),
+                "description": self.randomString(ceil(random()*250))
             }
 
             app = self.client.post(
                 self.url,json.dumps(body),
                 headers={'Content-Type': 'application/json'}
             )
-            self.todo_ids.append(app.response['id'])      
+            
+            
+            self.todo_ids.append(json.loads(app.text)['id'])      
 
 
     def on_stop(self):
@@ -38,31 +44,32 @@ class TodoUser(HttpUser):
             self.url+id+"/",  headers={'Content-Type': 'application/json'}
         )   
 
-    @task(20)
+
+    @task(5)
     def get_todo_list(self):
         app_list = self.client.get(
-            url,
+            self.url,
             headers={'Content-Type': 'application/json'}
         )
 
-    @task(30)
+    @task(40)
     def post_todo_list(self):
         body = {
-            "title": randomString(ceil(random()*50)),
-            "description": randomString(ceil(random()*250))
+            "title": self.randomString(ceil(random()*50)),
+            "description": self.randomString(ceil(random()*250))
         }
 
         app = self.client.post(
             self.url,json.dumps(body),
             headers={'Content-Type': 'application/json'}
         )
-        self.todo_ids.append(app.response['id'])      
+        self.todo_ids.append(app.body['id'])      
         
-    @task(20)
+    @task(25)
     def put_todo_list(self):
         body = {
-            "title": randomString(ceil(random()*50)),
-            "description": randomString(ceil(random()*250))
+            "title": self.randomString(ceil(random()*50)),
+            "description": self.randomString(ceil(random()*250))
         }
 
         app = self.client.put(

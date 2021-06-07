@@ -30,6 +30,7 @@ From here, we recommend you start with a [review of some Kubernetes and related 
 | Vuejs Todo Single Page Application | [code/app-code/frontend/todo-vuejs](code/app-code/frontend/todo-vuejs) | Todo application implemented in Vuejs; includes Helm chart deployed using Skaffold |
 | Monitoring | [code/k8s-common-code/monitoring](code/k8s-common-code/monitoring) |Installing and configuring monitoring with Prometheus and Grafana into the Kubernetes cluster using standard Helm charts created by the Prometheus community |
 | Kubernetes Dashboard | [code/k8s-common-code/k8sdashboard](code/k8s-common-code/k8sdashboard) | Deploying the Kubernetes dashboard, a browser-based GUI view of the Kubernetes cluster |
+| Locust-based API Load Generator | [code/k8s-common-code/locust-loadgen-api](code/k8s-common-code/README.md) | Deploying a scalable todo API load generator |
 
 # Quickstart
 | Deployment | File or Directory | Description |
