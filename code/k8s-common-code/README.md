@@ -15,7 +15,7 @@ This directory contains code to install some of the common supporting elements n
 [Locust API load generator](./locust-loadgen-api): A helm chart that will install the [Locust load generator](https://locust.io/) that can send requests to the todo api. Look at the [Values file](./locust-loadgen-api/values.yaml), the [locust file](./locust-loadgen-api/tasks/locustfile.py) as well as [Locust documentation](https://docs.locust.io/en/stable/).
 
 
-Note we don't install the Locust helm chart be default. In order to install it, adjust the [Values file](./locust-loadgen-api/values.yaml) and then install it via Helm in a separate namespace.
+Note we don't install the Locust helm chart by default via our [installation scripts](../../local-kubernetes-cluster-installation). In order to install the load generator, adjust the [Values file](./locust-loadgen-api/values.yaml) and then install it via Helm in a separate namespace, like so:
 
 ```
 kubectl create ns locust
