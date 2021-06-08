@@ -34,6 +34,7 @@ Here are some of the highlights of the KAT
 6. Monitoring is provided through a prometheus server and grafana dashboards.
 7. A Kubernetes dashboard is available to visually browse the Kubernetes cluster at any time.
 8. An Nginx Ingress resource is setup to route application, monitoring and dashboard requests.
+9. An (optional) API load generator that uses [Locust](https://locust.io/) to send traffic to the todo backend API.
 
 We have documented several aspects of the setup. Here is where everything is:
 | Category | File or Directory  | Description |
@@ -44,7 +45,7 @@ We have documented several aspects of the setup. Here is where everything is:
 | Vuejs To-do Single Page Application | [../code/app-code/frontend/To-do-vuejs](../code/app-code/frontend/To-do-vuejs) | To-do application implemented in Vuejs and a readme file; includes Helm chart deployed using Skaffold |
 | Monitoring | [../code/k8s-common-code/monitoring](../code/k8s-common-code/monitoring) |Installing and configuring monitoring with Prometheus and Grafana into the Kubernetes cluster using standard Helm charts created by the Prometheus community |
 | Kubernetes Dashboard | [../code/k8s-common-code/k8sdashboard](../code/k8s-common-code/k8sdashboard) | Running the Kubernetes dashboard |
-
+| Locust-based API Load Generator | [../code/k8s-common-code/locust-loadgen-api](code/k8s-common-code/README.md) | Deploying a scalable todo API load generator |
 
 Here is the directory tree of this repository:
 
@@ -53,33 +54,16 @@ Here is the directory tree of this repository:
 ├── code
 │   ├── app-code
 │   │   ├── api
-│   │   │   └── To-do-python-django
-│   │   │       ├── apis
-│   │   │       │   └── migrations
-│   │   │       ├── config
-│   │   │       ├── kubecode
-│   │   │       │   └── bigbitbus-dj-py-api
-│   │   │       │       └── templates
-│   │   │       └── To-dos
-│   │   │           └── migrations
 │   │   └── frontend
-│   │       └── To-do-vuejs
-│   │           ├── dist
-│   │           │   └── js
-│   │           ├── kubecode
-│   │           │   └── bigbitbus-vue-fe
-│   │           │       └── templates
-│   │           ├── public
-│   │           └── src
-│   │               ├── assets
-│   │               └── components
 │   ├── k8s-common-code
 │   │   ├── k8sdashboard
+│   │   ├── locust-loadgen-api
 │   │   ├── monitoring
 │   │   └── postgres-db
 │   └── local-kubernetes-cluster-installation
 └── documentation
     └── images
+
 
 ```
 
