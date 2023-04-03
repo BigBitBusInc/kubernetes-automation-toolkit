@@ -59,14 +59,14 @@ unzip $RELEASENAME.zip
 cd /home/$INSTALLUSER/$RELEASEDIRNAME/code/k8s-common-code/postgres-db/
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
-helm upgrade --install pgdb bitnami/postgresql -f pg-values.yaml --namespace pg --create-namespace 
+helm upgrade --install pgdb bitnami/postgresql -f pg-values.yaml --namespace pg --create-namespace --version 12.2.6
 
 # Monitoring
 cd /home/$INSTALLUSER/$RELEASEDIRNAME/code/k8s-common-code/monitoring/
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add stable https://charts.helm.sh/stable
 helm repo update
-helm  upgrade --install monitoring-stack prometheus-community/kube-prometheus-stack -f ./prometheus-grafana-monitoring-stack-values.yaml --namespace monitoring --create-namespace 
+helm  upgrade --install monitoring-stack prometheus-community/kube-prometheus-stack -f ./prometheus-grafana-monitoring-stack-values.yaml --namespace monitoring --create-namespace --version 12.8.1
 
 # K8s Dashboard
 cd /home/$INSTALLUSER/$RELEASEDIRNAME/code/k8s-common-code/k8sdashboard/
