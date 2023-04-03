@@ -59,7 +59,7 @@ unzip $RELEASENAME.zip
 cd /home/$INSTALLUSER/$RELEASEDIRNAME/code/k8s-common-code/postgres-db/
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
-helm upgrade --install pgdb bitnami/postgresql -f pg-values.yaml --namespace pg --create-namespace --version 12.2.6
+helm upgrade --install pgdb bitnami/postgresql -f pg-values.yaml --namespace pg --create-namespace --version 12.2.7
 
 # Monitoring
 cd /home/$INSTALLUSER/$RELEASEDIRNAME/code/k8s-common-code/monitoring/
