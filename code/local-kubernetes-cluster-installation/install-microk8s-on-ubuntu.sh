@@ -49,9 +49,9 @@ apt-get install -y fail2ban vim
 apt-get install unzip
 
 # Note - we pegged the Kubernetes version here
-snap install microk8s --classic --channel=1.19
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
+snap install microk8s --classic --channel=1.19
 snap install kubectl --classic --channel=1.19
 snap install helm --classic --channel=3.4
 sleep 60 # Sometimes microk8s needs time to stabilize
